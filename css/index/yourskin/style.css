@@ -1,0 +1,248 @@
+/* 设置弹层皮肤 */
+
+body .populationclass {
+    background: url('./../../../img/ejtk.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+body .peopleNumclass {
+    background: url('./../../../img/wk.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+body .yirenyidangclass {
+    background: url('./../../../img/wk.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+body .yiwuyidangclass {
+    background: url('./../../../img/ywydbjt.png') no-repeat;
+    background-size: 100% 100%;
+}
+body .doorSmoke {
+    background: url('./../../../img/bk_louceng.png') no-repeat;
+    background-size: 100% 100%;
+}
+body .loucengclass {
+    background: url('./../../../img/beiying.png') no-repeat;
+    background-size: 100% 100%;
+}
+body .setChatInfoclass {
+    background: url('../../../img/shezhiceng.png') no-repeat;
+    background-size: 100% 100%;
+}
+body .onePeoplePushclass {
+    background: url('../../../img/waikuang.png') no-repeat;
+    background-size: 100% 100%;
+}
+body .onePeoplePushclassNew {
+    background: url('../../../img/zpzpddt.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+/* 出租房空置、群租房 告警皮肤 */
+body .houseVacancyclass{
+    background: url('../../../img/qunzufangkuangzi.png') no-repeat;
+    background-size: 100% 100%;
+}
+/* sos告警、黑名单*/
+body .soswarnclass{
+    background: url('../../../img/SOSgaojing.png') no-repeat;
+    background-size: 100% 100%;
+}
+/* 设备烟感、门禁 告警*/
+body .equipmentclass{
+    background: url('../../../img/shebeikuangzi.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+/* 特殊人群告警*/
+body .specialclass{
+    background: url('../../../img/fenzise.png') no-repeat;
+    background-size: 100% 100%;
+}
+/* 重点人员告警*/
+body .personnelclass{
+    background: url('../../../img/zhongdianryuan.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+body .loucengclass .layui-layer-ico{
+    z-index: 9999;
+}
+body .loucengclass .layui-layer-ico:hover{
+    z-index: 9999;
+}
+body .doorSmoke .layui-layer-ico{
+    z-index: 9999;
+}
+body .doorSmoke .layui-layer-ico:hover{
+    z-index: 9999;
+}
+body .doorSmoke .layui-layer-ico{
+    width: 0.6rem;
+    height: 0.6rem;
+    background: url('./../../../img/gban.png') no-repeat;
+    background-size: 0.6rem 0.6rem;
+    right: 0.3rem;
+    top: 0.3rem;
+}
+body .doorSmoke .layui-layer-ico:hover{
+    width: 0.6rem;
+    height: 0.6rem;
+    background: url('./../../../img/gban.png') no-repeat;
+    background-size: 0.6rem 0.6rem;
+    right: 0.3rem;
+    top: 0.3rem;
+}
+
+body .onePeoplePushclassNew .layui-layer-ico,
+body .onePeoplePushclass .layui-layer-ico,
+body .setChatInfoclass .layui-layer-ico,
+body .populationclass .layui-layer-ico,
+body .peopleNumclass .layui-layer-ico,
+body .loucengclass .layui-layer-ico,
+body .yiwuyidangclass .layui-layer-ico,
+body .yirenyidangclass .layui-layer-ico {
+    width: 0.6rem;
+    height: 0.6rem;
+    background: url('./../../../img/gban.png') no-repeat;
+    background-size: 0.6rem 0.6rem;
+    right: 0.3rem;
+    top: 0.6rem;
+}
+
+
+body .onePeoplePushclassNew .layui-layer-ico:hover,
+body .onePeoplePushclass .layui-layer-ico:hover,
+body .setChatInfoclass .layui-layer-ico:hover,
+body .populationclass .layui-layer-ico:hover,
+body .peopleNumclass .layui-layer-ico:hover,
+body .loucengclass .layui-layer-ico:hover,
+body .yiwuyidangclass .layui-layer-ico:hover,
+body .yirenyidangclass .layui-layer-ico:hover {
+    width: 0.6rem;
+    height: 0.6rem;
+    background: url('./../../../img/gban.png') no-repeat;
+    background-size: 0.6rem 0.6rem;
+    right: 0.3rem;
+    top: 0.6rem;
+}
+
+body .loucengclass .layui-layer-ico {
+    width: 0.6rem;
+    height: 0.6rem;
+    background: url('./../../../img/gban.png') no-repeat;
+    background-size: 0.6rem 0.6rem;
+    right: 0.2rem;
+    top: 0.2rem;
+}
+
+body .loucengclass .layui-layer-ico:hover {
+    width: 0.6rem;
+    height: 0.6rem;
+    background: url('./../../../img/gban.png') no-repeat;
+    background-size: 0.6rem 0.6rem;
+    right: 0.2rem;
+    top: 0.2rem;
+}
+body .houseVacancyclass .layui-layer-ico{
+    width: 0.6rem;
+    height: 0.6rem;
+    background: url('./../../../img/chahca.png') no-repeat;
+    background-size: 0.6rem 0.6rem;
+    right: 0.3rem;
+    top: 0.6rem;
+}
+body .houseVacancyclass .layui-layer-ico:hover{
+    width: 0.6rem;
+    height: 0.6rem;
+    background: url('./../../../img/chahca.png') no-repeat;
+    background-size: 0.6rem 0.6rem;
+    right: 0.3rem;
+    top: 0.6rem;
+}
+
+body .soswarnclass .layui-layer-ico{
+    width: 0.6rem;
+    height: 0.6rem;
+    background: url('./../../../img/cha.png') no-repeat;
+    background-size: 0.6rem 0.6rem;
+    right: 0.3rem;
+    top: 0.6rem;
+}
+body .soswarnclass .layui-layer-ico:hover{
+    width: 0.6rem;
+    height: 0.6rem;
+    background: url('./../../../img/cha.png') no-repeat;
+    background-size: 0.6rem 0.6rem;
+    right: 0.3rem;
+    top: 0.6rem;
+}
+
+body .equipmentclass .layui-layer-ico{
+    width: 0.6rem;
+    height: 0.6rem;
+    background: url('./../../../img/meihongcha.png') no-repeat;
+    background-size: 0.6rem 0.6rem;
+    right: 0.3rem;
+    top: 0.6rem;
+}
+body .equipmentclass .layui-layer-ico:hover{
+    width: 0.6rem;
+    height: 0.6rem;
+    background: url('./../../../img/meihongcha.png') no-repeat;
+    background-size: 0.6rem 0.6rem;
+    right: 0.3rem;
+    top: 0.6rem;
+}
+body .specialclass .layui-layer-ico{
+    width: 0.6rem;
+    height: 0.6rem;
+    background: url('./../../../img/teshur.png') no-repeat;
+    background-size: 0.6rem 0.6rem;
+    right: 0.3rem;
+    top: 0.6rem;
+}
+body .specialclass .layui-layer-ico:hover{
+    width: 0.6rem;
+    height: 0.6rem;
+    background: url('./../../../img/teshur.png') no-repeat;
+    background-size: 0.6rem 0.6rem;
+    right: 0.3rem;
+    top: 0.6rem;
+}
+body .personnelclass .layui-layer-ico{
+    width: 0.6rem;
+    height: 0.6rem;
+    background: url('./../../../img/quxiao.png') no-repeat;
+    background-size: 0.6rem 0.6rem;
+    right: 0.3rem;
+    top: 0.6rem;
+}
+body .personnelclass .layui-layer-ico:hover{
+    width: 0.6rem;
+    height: 0.6rem;
+    background: url('./../../../img/quxiao.png') no-repeat;
+    background-size: 0.6rem 0.6rem;
+    right: 0.3rem;
+    top: 0.6rem;
+}
+
+/* body .yourclass .layui-layer-title {
+    background: #c00;
+    color: #fff;
+    border: none;
+}
+
+body .yourclass .layui-layer-btn {
+    border-top: 1px solid #E9E7E7
+}
+
+body .yourclass .layui-layer-btn a {
+    background: #333;
+}
+
+body .yourclass .layui-layer-btn .layui-layer-btn1 {
+    background: #999;
+} */

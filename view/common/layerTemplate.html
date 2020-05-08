@@ -1,0 +1,1983 @@
+<!------------------- 常住/流动人口增长趋势 弹层  start---------------------->
+<div class="population_layer" id="population_layer" style="display:none">
+    <div class="population_layer_title">流动人口与常住人口变化</div>
+    <ul>
+        <li>
+            <div id="cont_1_3_echart"></div>
+        </li>
+        <li>
+            <div id="cont_1_4_echart"></div>
+        </li>
+        <li>
+            <div id="cont_1_5_echart"></div>
+            <div class="population_layer_input">
+                <input type="text" class="layui-input" id="population_layer_input_start" autocomplete="off" placeholder="请选择日期">
+                <span>至</span>
+                <input type="text" class="layui-input" id="population_layer_input_end" autocomplete="off" placeholder="请选择日期">
+                <img src="../../img/sousuo.png" id="population_layer_input_btn">
+            </div>
+        </li>
+    </ul>
+</div>
+<!------------------- 常住/流动人口增长趋势 弹层  end---------------------->
+
+<!------------------- 今日新增 弹层  start---------------------->
+<div class="today_layer" id="today_layer" style="display:none">
+    <div class="today_layer_title">今日新增</div>
+    <div class="today_layer_top">
+        <ul class="today_layer_left">
+            <li>新增(<span>10</span>人)</li>
+            <li>注销(<span>5</span>人)</li>
+        </ul>
+        <div class="today_layer_right">
+            <input type="text" placeholder="输入姓名、身份证号" autocomplete="off" id="today_layer_input">
+            <img src="../../img/sousuo.png" alt="" id="today_layer_btn">
+        </div>
+    </div>
+    <div class="today_layer_table">
+        <table id="today_table" lay-filter="today_table"></table>
+
+        <script type="text/html" id="today_Demo">
+            <a class="layui-btn" lay-event="yirenyidang">一人一档</a>
+        </script>
+    </div>
+</div>
+<!------------------- 今日新增 弹层  end---------------------->
+<!------------------- 一人一档 弹层  start---------------------->
+<div class="yirenyidang" id="yirenyidang" style="display:none">
+    <div class="yirenyidang_title"></div>
+    <div class="yirenyidang_top">
+        <div class="yirenyidang_top_left">
+            <!-- <img src="../../img/bkxzq.png" alt=""> -->
+        </div>
+        <div class="yirenyidang_top_right">
+            <div class="yirenyidang_top_right_title">
+                <ul class="yirenyidang_top_right_title_ul">
+                    <li class="yirenyidang_top_oneHouse">一屋一档</li>
+                    <li class="yirenyidang_top_oneCar">一车一档</li>
+                </ul>
+                <ul class="yirenyidang_top_right_title_ul2">
+                    <!-- <li class="yezhu"></li>
+                    <li class="jingshenbing"></li>
+                    <li class="xingman"></li>
+                    <li class="gugua"></li> -->
+                </ul>
+            </div>
+            <div class="yirenyidang_top_right_div">
+                <div class="yirenyidang_top_right_div_l">
+                    <ul>
+                        <li><b>联系电话：</b><span></span></li>
+                        <li><b>年&emsp;&emsp;龄：</b><span></span></li>
+                        <li><b>民&emsp;&emsp;族：</b><span</span></li>
+                        <li><b>国&emsp;&emsp;籍：</b><span></span></li>
+                        <li><b>身份证号：</b><span></span></li>
+                        <li><b>户&emsp;&emsp;籍：</b><span></span></li>
+                    </ul>
+                </div>
+                <div class="yirenyidang_top_right_div_r">
+                    <h1 id="yirenyidang_top_right_div_r_h1">更多信息<span><img src="../../img/gengduo.png" alt=""></span></h1>
+                    <div class="yirenyidang_top_right_div_r_div" style="display:none">
+                        <div class="yirenyidang_top_right_div_r_1">
+                            <h2>基本状况</h2>
+                            <ul>
+                                <li><b>学&emsp;&emsp;历：</b><span></span></li>
+                                <li><b>职&emsp;&emsp;业：</b><span></span></li>
+                                <li><b>婚姻状况：</b><span></span></li>
+                                <li><b>单位名称：</b><span></span></li>
+                                <li><b>政治面貌：</b><span></span></li>
+                                <li><b>单位性质：</b><span></span></li>
+                                <li><b>从业状况：</b><span></span></li>
+                                <li><b>登记时间：</b><span></span></li>
+                            </ul>
+                        </div>
+                        <div class="yirenyidang_top_right_div_r_2">
+                            <h2>住址详情</h2>
+                            <ul>
+                                <li><b>街&emsp;&emsp;道：</b><span></span></li>
+                                <li><b>社&emsp;&emsp;区：</b><span></span></li>
+                                <li><b>小&emsp;&emsp;区：</b><span></span></li>
+                                <li><b>房间号码：</b><span></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="yirenyidang_bottom">
+        <div class="yirenyidang_bottom_top">
+            <ul class="yirenyidang_bottom_top_l">
+                <li class="pitch_on">出入记录</li>
+                <li>出行分析</li>
+                <li>告警信息</li>
+            </ul>
+            <div class="yirenyidang_bottom_top_r">
+                <ul class="yirenyidang_bottom_top_r_ul">
+                    <li>
+                        <input type="text" class="layui-input" autocomplete="off" id="yirenyidang_start" placeholder="请输入日期/时间">
+                    </li>
+                    <span>至</span>
+                    <li>
+                        <input type="text" class="layui-input" autocomplete="off" id="yirenyidang_end" placeholder="请输入日期/时间">
+                    </li>
+                </ul>
+                <img src="../../img/sousuo.png" alt="" id="yirenyidang_btn">
+            </div>
+        </div>
+        <div class="yirenyidang_bottom_table">
+            <div>
+                <table id="yirenyidang_table_go" lay-filter="yirenyidang_table_go"></table>
+                <script type="text/html" id="yirenyidang_go_Demo">
+                    {{#  if(d.images_url_status == '1'){ }}
+                    <a class="layui-btn" lay-event="push_photo">开门抓拍</a>
+                    {{#  } else { }}
+                    <a class="layui-btn" style="width:1.95rem;cursor:default;margin-left: 0rem;"></a>
+                    {{#  } }}
+
+                    {{#  if(d.video_url_status == '1'){ }}
+                    <a class="layui-btn" lay-event="video">实时视频</a>
+                    {{#  } else { }}
+                    <a class="layui-btn" style="width:1.95rem;cursor:default;margin-left: 0rem;"></a>                        
+                    {{#  } }}
+
+                    <!-- {{#  if(d.tailing_url_status == '1'){ }}
+                    <a class="layui-btn" lay-event="trailing_photo">尾随抓拍</a>
+                    {{#  } else { }}
+                    <a class="layui-btn" style="width:1.95rem;cursor:default;margin-left: 0rem;"></a>                        
+                    {{#  } }} -->
+                    
+                </script>
+            </div>
+            <div style="display:none">
+               <div class="yirenyidang_bottom_left">
+                    <h1>近30天出入记录分析</h1>
+                    <ul>
+                        <li>近一个月晚归次数<span class="yirenyidang_bottom_left_num"></span>次</li>
+                        <li>最晚归来时间：</li>
+                        <li class="yirenyidang_bottom_left_time"></li>
+                    </ul>
+               </div>
+               <div class="yirenyidang_bottom_right">
+                    <div id="travelAnalysis"></div>
+               </div>
+            </div>
+            <div style="display:none">
+                <table id="yirenyidang_table_warn" lay-filter="yirenyidang_table_warn"></table>
+                <script type="text/html" id="yirenyidang_warn_Demo">
+                    <a class="layui-btn" lay-event="push_look">查看</a>
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+<!------------------- 一人一档 弹层  end---------------------->
+<!------------------- 一屋一档 弹层  start---------------------->
+<div class="yiwuyidang" id="yiwuyidang" style="display:none">
+    <div class="yiwuyidang_title">2号楼2单元120号（<span>12</span>人）</div>
+    <div class="yiwuyidang_top">
+        <div class="yiwuyidang_top_right">
+            <ul>
+                <li><b>街&emsp;&emsp;道：</b><span></span></li>
+                <li><b>社&emsp;&emsp;区：</b><span></span></li>
+                <li><b>小&emsp;&emsp;区：</b><span></span></li>
+                <li><b>房间号码：</b><span></span></li>
+            </ul>
+            <ul>
+                <li><b>房屋性质：</b><span></span></li>
+                <li><b>房屋用途：</b><span></span></li>
+                <li><b>户&emsp;&emsp;型：</b><span></span></li>
+                <li><b>建筑面积：</b><span></span></li>
+            </ul>
+            <ul>
+                <li><b>电话呼叫：</b><span>未开通</span></li>
+                <li><b>被&nbsp;叫&nbsp;方：</b><span></span></li>
+                <li><b>电话号码：</b><span></span></li>
+            </ul>
+            <ul>
+                <li><b>人口数量：</b><span></span></li>
+                <li><b>车辆数量：</b><span></span></li>
+            </ul>
+            <img src="../../img/zuzhu.png" alt="" class="yiwuyidang_top_right_img">
+        </div>
+    </div>
+    <div class="yiwuyidang_bottom">
+        <div class="yiwuyidang_bottom_div">
+            <div class="yiwuyidang_bottom_div_ul_title">
+                <ul>
+                    <li>家庭成员</li>
+                    <li>历史承租人</li>
+                </ul>
+            </div>
+            <div class="yiwuyidang_bottom_div_ul">
+                <!-- <li>
+                    <dl>
+                        <dt></dt>
+                        <dd>
+                            <h1><span>唐梨花唐梨花</span><b>业主业主</b></h1>
+                            <h2><b class="emphasis"></b><b class="care"></b></h2>
+                            <h3>车辆数量：<b>0</b></h3>
+                            <h4 class="yiwuyidang_bottom_div_Onepeople">查看一人一档<span>>></span></h4>
+                        </dd>
+                    </dl>
+                </li> -->
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!------------------- 一屋一档 弹层  end---------------------->
+<!------------------- 一车一档 弹层  start---------------------->
+<div class="yicheyidang" id="yicheyidang" style="display:none">
+    <div class="yicheyidang_title">京A 11234</div>
+    <div class="yicheyidang_top">
+        <div class="yicheyidang_top_left">
+            <!-- <img src="../../img/bkxzq.png" alt=""> -->
+        </div>
+        <div class="yicheyidang_top_right">
+            <div class="yicheyidang_top_right_title">
+                <ul class="yicheyidang_top_right_title_ul">
+                    <li>一人一档</li>
+                </ul>
+            </div>
+            <div class="yicheyidang_top_right_div">
+                <div class="yicheyidang_top_right_div_l">
+                    <ul>
+                        <li><b>车辆颜色：</b><span></span></li>
+                        <li><b>车辆使用人：</b><span></span></li>
+                        <li><b>联系电话：</b><span></span></li>
+                        <li><b>停车类型：</b><span></span></li>
+                        <li><b>居住地址：</b><span></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="yicheyidang_bottom">
+        <div class="yicheyidang_bottom_top">
+            <div class="yicheyidang_bottom_top_r">
+                <ul class="yicheyidang_bottom_top_r_ul">
+                    <li>
+                        <input type="text" class="layui-input" autocomplete="off" id="yicheyidang_start" placeholder="请输入日期/时间">
+                    </li>
+                    <span>至</span>
+                    <li>
+                        <input type="text" class="layui-input" autocomplete="off" id="yicheyidang_end" placeholder="请输入日期/时间">
+                    </li>
+                </ul>
+                <img src="../../img/sousuo.png" alt="" id="yicheyidang_btn">
+            </div>
+        </div>
+        <div class="yicheyidang_bottom_table">
+            <table id="yicheyidang_table" lay-filter="yicheyidang_table"></table>
+            <script type="text/html" id="yicheyidang_table_Demo">
+                <a class="layui-btn" lay-event="portal_name">抓拍照片</a>
+            </script>
+        </div>
+    </div>
+</div>
+<!------------------- 一车一档 弹层  end---------------------->
+<!-------------------人口统计图标 弹层  start---------------------->
+<div class="setChatInfo" id="setChatInfoLayer" style="display:none">
+    <form class="layui-form" action="">
+    <div class="peopleInfo">
+        <div class="peopleInfo_title">
+            人口统计图表>>
+        </div>
+        <div class="peopleInfo_left">
+            <ul>
+                <li>
+                    <h1>外来人口籍贯分布</h1>
+                    <h2><img src="../../img/ditu.png" alt=""></h2>
+                    <p>
+                        <input type="checkbox" name="externalPopulation" value="1" lay-filter="checkboxDemo" checked>
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div class="peopleInfo_right">
+            <ul>
+                <li>
+                    <h1>年龄统计</h1>
+                    <h2><img src="../../img/bingtu.png" alt=""></h2>
+                    <p><input type="checkbox" name="ageStatistics" value="2" lay-filter="checkboxDemo" checked></p>
+                </li>
+                <li>
+                    <h1>户籍统计</h1>
+                    <h2><img src="../../img/zhutu.png" alt=""></h2>
+                    <p><input type="checkbox" name="houseStatistics" value="3" lay-filter="checkboxDemo" checked></p>
+                </li>
+                <li>
+                    <h1>人口占比</h1>
+                    <h2><img src="../../img/bingtu.png" alt=""></h2>
+                    <p><input type="checkbox" name="peopleProporion" value="4" lay-filter="checkboxDemo" checked></p>
+                </li>
+                <li>
+                    <h1>政治面貌</h1>
+                    <h2><img src="../../img/zhutu.png" alt=""></h2>
+                    <p><input type="checkbox" name="politicsStatus" value="5" lay-filter="checkboxDemo" checked></p>
+                </li>
+                <li>
+                    <h1>特殊人群统计</h1>
+                    <h2><img src="../../img/bingtu.png" alt=""></h2>
+                    <p><input type="checkbox" name="specialCrowd" value="6" lay-filter="checkboxDemo"></p>
+                </li>
+                <li>
+                    <h1>婚姻状况</h1>
+                    <h2><img src="../../img/zhutu.png" alt=""></h2>
+                    <p><input type="checkbox" name="maritalStatus" value="7" lay-filter="checkboxDemo"></p>
+                </li>
+                <li>
+                    <h1>学历统计</h1>
+                    <h2><img src="../../img/bingtu.png" alt=""></h2>
+                    <p><input type="checkbox" name="degreeStatistics" value="8" lay-filter="checkboxDemo"></p>
+                </li>
+                <li>
+                    <h1>常住流动人口趋势</h1>
+                    <h2><img src="../../img/zhexiandui.png" alt=""></h2>
+                    <p><input type="checkbox" name="permanent" value="9" lay-filter="checkboxDemo"></p>
+                </li>
+                <li>
+                    <h1>从业状况</h1>
+                    <h2><img src="../../img/zhutu.png" alt=""></h2>
+                    <p><input type="checkbox" name="workConditions" value="10" lay-filter="checkboxDemo"></p>
+                </li>
+                <li>
+                    <h1>个人户籍状态</h1>
+                    <h2><img src="../../img/zhutu.png" alt=""></h2>
+                    <p><input type="checkbox" name="householdStatus" value="11" lay-filter="checkboxDemo"></p>
+                </li>
+                <li>
+                    <h1>民族分布</h1>
+                    <h2><img src="../../img/zhutu.png" alt=""></h2>
+                    <p><input type="checkbox" name="nationality" value="12" lay-filter="checkboxDemo"></p>
+                </li>
+                <li>
+                    <h1>性别统计</h1>
+                    <h2><img src="../../img/sex_1.png" alt=""></h2>
+                    <p><input type="checkbox" name="sexStatistics" value="13" lay-filter="checkboxDemo"></p>
+                </li>
+                <li>
+                    <h1>开门占比</h1>
+                    <h2><img src="../../img/bingtu.png" alt=""></h2>
+                    <p><input type="checkbox" name="OpenDoorOf" value="18" lay-filter="checkboxDemo"></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="houseInfo">
+        <div class="houseInfo_title">
+            房屋统计图表>>
+        </div>
+        <div class="houseInfo_right">
+            <ul>
+                <li>
+                    <h1>房屋占比</h1>
+                    <h2><img src="../../img/bingtu.png" alt=""></h2>
+                    <p><input type="checkbox" name="housesAccounted" value="14" lay-filter="checkboxDemo"></p>
+                </li>
+                <li>
+                    <h1>出租房总趋势</h1>
+                    <h2><img src="../../img/zhutu.png" alt=""></h2>
+                    <p><input type="checkbox" name="rentalHousing" value="15" lay-filter="checkboxDemo"></p>
+                </li>
+                <li>
+                    <h1>房屋用途</h1>
+                    <h2><img src="../../img/zhutu.png" alt=""></h2>
+                    <p><input type="checkbox" name="houseUsage" value="16" lay-filter="checkboxDemo"></p>
+                </li>
+                <li>
+                    <h1>房屋性质</h1>
+                    <h2><img src="../../img/bingtu.png" alt=""></h2>
+                    <p><input type="checkbox" name="houseNature" value="17" lay-filter="checkboxDemo"></p>
+                </li>
+                <li>
+                    <h1>群租房趋势</h1>
+                    <h2><img src="../../img/zhutu.png" alt=""></h2>
+                    <p><input type="checkbox" name="rentGroupInfo" value="19" lay-filter="checkboxDemo"></p>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    <div class="buttonInfo">
+        <ul>
+            <li><button type="reset" id="reset">重新选择</button></li>
+            <li id="cancel">取消</li>
+            <li><button lay-submit="" lay-filter="submitDemo">提交</button></li>
+        </ul>
+    </div>
+    </form>
+</div>
+<!-------------------人口统计图标 弹层  end---------------------->
+<!------------------- 人员告警 弹层  start---------------------->
+<div class="people_layer" id="people_layer" style="display:none">
+    <div class="people_layer_title">人员告警列表</div>
+    <div class="people_layer_top">
+        <div class="people_layer_right">
+            <input type="text" placeholder="输入姓名" autocomplete="off" id="people_layer_right_input">
+            <img src="../../img/sousuo.png" alt="" id="people_layer_btn">
+        </div>
+        <ul class="people_layer_left">
+            <li>
+                <input type="text" class="layui-input" autocomplete="off" id="people_table_start" placeholder="请输入日期/时间">
+            </li>
+            <span>至</span>
+            <li>
+                <input type="text" class="layui-input" autocomplete="off" id="people_table_end" placeholder="请输入日期/时间">
+            </li>
+        </ul>
+    </div>
+    <div class="people_layer_table">
+        <table id="people_table" lay-filter="people_table"></table>
+        <script type="text/html" id="people_table_Demo">
+            <a class="layui-btn" lay-event="people_table_lock">查看</a>
+        </script>
+    </div>
+</div>
+<!------------------- 人员告警 弹层  end---------------------->
+<!------------------- 房屋告警 弹层  start---------------------->
+<div class="house_layer" id="house_layer" style="display:none">
+    <div class="house_layer_title">房屋告警列表</div>
+    <div class="house_layer_top">
+        <div class="house_layer_right">
+            <input type="text" placeholder="输入房间号" autocomplete="off" id="house_layer_right_input">
+            <img src="../../img/sousuo.png" alt="" id="house_layer_btn">
+        </div>
+        <ul class="house_layer_left">
+            <li>
+                <input type="text" class="layui-input" autocomplete="off" id="house_table_start" placeholder="请输入日期/时间">
+            </li>
+            <span>至</span>
+            <li>
+                <input type="text" class="layui-input" autocomplete="off" id="house_table_end" placeholder="请输入日期/时间">
+            </li>
+        </ul>
+    </div>
+    <div class="house_layer_table">
+        <table id="house_table" lay-filter="house_table"></table>
+        <script type="text/html" id="house_table_Demo">
+            <a class="layui-btn" lay-event="house_table_lock">查看</a>
+        </script>
+    </div>
+</div>
+<!------------------- 房屋告警 弹层  end---------------------->
+<!------------------- 设备告警 弹层  start---------------------->
+<div class="device_layer" id="device_layer" style="display:none">
+    <div class="device_layer_title">设备告警列表</div>
+    <div class="device_layer_top">
+        <div class="device_layer_right">
+            <input type="text" placeholder="输入设备编码" autocomplete="off" id="device_layer_right_input">
+            <img src="../../img/sousuo.png" alt="" id="device_layer_btn">
+        </div>
+        <ul class="device_layer_left">
+            <li>
+                <input type="text" class="layui-input" autocomplete="off" id="device_table_start" placeholder="请输入日期/时间">
+            </li>
+            <span>至</span>
+            <li>
+                <input type="text" class="layui-input" autocomplete="off" id="device_table_end" placeholder="请输入日期/时间">
+            </li>
+        </ul>
+    </div>
+    <div class="device_layer_table">
+        <table id="device_table" lay-filter="device_table"></table>
+        <script type="text/html" id="device_table_Demo">
+            <a class="layui-btn" lay-event="device_table_lock">查看</a>
+        </script>
+        
+    </div>
+</div>
+<!------------------- 设备告警 弹层  end---------------------->
+<!------------------- 人员告警 ==>5关爱人员告警(特殊人群) 弹层  start---------------------->
+<div class="guanairenyuan" id="guanairenyuan" style="display:none">
+    <div class="guanairenyuan_title">独居老人未出门告警</div>
+    <div class="guanairenyuan_top">
+        <div class="guanairenyuan_top_left">
+            <!-- <img src="../../img/bkxzq.png" alt=""> -->
+        </div>
+        <div class="guanairenyuan_top_right">
+            <div class="guanairenyuan_top_right_title">
+                <div class="guanairenyuan_top_right_name"></div>
+                <ul class="guanairenyuan_top_right_title_ul">
+                    <li class="guanairenyuan_top_oneHouse">一屋一档</li>
+                    <li class="guanairenyuan_top_oneCar">一车一档</li>
+                </ul>
+                <ul class="guanairenyuan_top_right_title_ul2">
+                    <li class="yezhu"></li>
+                    <li class="jingshenbing"></li>
+                    <li class="xingman"></li>
+                    <li class="gugua"></li>
+                </ul>
+            </div>
+            <div class="guanairenyuan_top_right_div">
+                <div class="guanairenyuan_top_right_div_l">
+                    <ul>
+                        <li><b>发生原因：</b><span></span></li>
+                        <li><b>发生时间：</b><span></span></li>
+                        <li><b>位&emsp;&emsp;置：</b><span></span></li>
+                        <li><b>状&emsp;&emsp;态：</b><span></span></li>
+                    </ul>
+                </div>
+                <div class="guanairenyuan_top_right_div_r">
+                    <h1 id="guanairenyuan_top_right_div_r_h1">处理信息<span><img src="../../img/gengduo.png" alt=""></span></h1>
+                    <div class="guanairenyuan_top_right_div_r_div" style="display:none">
+                        <div class="guanairenyuan_top_right_div_r_1">
+                            <ul>
+                                <li><b>完成时间：</b><span></span></li>
+                                <li><b>处理人员：</b><span></span></li>
+                                <li><b>处理结果：</b><span></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="guanairenyuan_bottom">
+        <div class="guanairenyuan_bottom_top">
+            <ul class="guanairenyuan_bottom_top_l">
+                <li>历史信息</li>
+            </ul>
+        </div>
+        <div class="guanairenyuan_bottom_table">
+            <div>
+                <table id="guanairenyuan_table_go"></table>
+            </div>
+        </div>
+    </div>
+</div>
+<!------------------- 人员告警 ==>(5 特殊人群) 弹层  end---------------------->
+
+<!------------------- 人员告警 ==>(重点人员告警 3出入即时报警) 弹层  start---------------------->
+
+<div class="churujishi" id="churujishi" style="display:none">
+    <div class="churujishi_title">独居老人未出门告警</div>
+    <div class="churujishi_top">
+        <div class="churujishi_top_left">
+            <!-- <img src="../../img/bkxzq.png" alt="">
+            <img src="../../img/bkxzq.png" alt=""> -->
+        </div>
+        <div class="churujishi_top_right">
+            <div class="churujishi_top_right_title">
+                <div class="churujishi_top_right_name"></div>
+                <ul class="churujishi_top_right_title_ul">
+                    <!-- <li class="churujishi_top_oneHouse">一屋一档</li>
+                    <li class="churujishi_top_oneCar">一车一档</li> -->
+                </ul>
+                <ul class="churujishi_top_right_title_ul2">
+                    <li class="yezhu"></li>
+                    <li class="jingshenbing"></li>
+                    <li class="xingman"></li>
+                    <li class="gugua"></li>
+                </ul>
+            </div>
+            <div class="churujishi_top_right_div">
+                <div class="churujishi_top_right_div_l">
+                    <ul>
+                        <li><b>发生原因：</b><span></span></li>
+                        <li><b>发生时间：</b><span></span></li>
+                        <li><b>监控时间：</b><span></span></li>
+                        <li><b>状&emsp;&emsp;态：</b><span></span></li>
+                    </ul>
+                </div>
+                <div class="churujishi_top_right_div_r">
+                    <h1 id="churujishi_top_right_div_r_h1">处理信息<span><img src="../../img/gengduo.png" alt=""></span></h1>
+                    <div class="churujishi_top_right_div_r_div" style="display:none">
+                        <div class="churujishi_top_right_div_r_1">
+                            <ul>
+                                <li><b>处理人员：</b><span></span></li>
+                                <li><b>位&emsp;&emsp;置：</b><span></span></li>
+                                <li><b>处理结果：</b><span></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="churujishi_bottom">
+        <div class="churujishi_bottom_top">
+            <ul class="churujishi_bottom_top_l">
+                <li>历史信息</li>
+            </ul>
+        </div>
+        <div class="churujishi_bottom_table">
+            <div>
+                <table id="churujishi_table_go"></table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!------------------- 人员告警 ==>(重点人员告警 3出入即时报警) 弹层  end---------------------->
+
+<!------------------- 人员告警 ==>(重点人员告警 4出入规律报警) 弹层  start---------------------->
+<div class="churuguilv" id="churuguilv" style="display:none">
+    <div class="churuguilv_title"></div>
+    <div class="churuguilv_top">
+        <div class="churuguilv_top_left">
+            <!-- <img src="../../img/bkxzq.png" alt=""> -->
+        </div>
+        <div class="churuguilv_top_right">
+            <div class="churuguilv_top_right_title">
+                <ul class="churuguilv_top_right_title_ul">
+                    <li class="churuguilv_top_oneHouse">一屋一档</li>
+                    <li class="churuguilv_top_oneCar">一车一档</li>
+                </ul>
+                <ul class="churuguilv_top_right_title_ul2">
+                    <li class="yezhu"></li>
+                    <li class="jingshenbing"></li>
+                    <li class="xingman"></li>
+                    <li class="gugua"></li>
+                </ul>
+            </div>
+            <div class="churuguilv_top_right_div">
+                <div class="churuguilv_top_right_div_l">
+                    <ul>
+                        <li><b>联系电话：</b><span>15766742178</span></li>
+                        <li><b>年&emsp;&emsp;龄：</b><span>20</span></li>
+                        <li><b>民&emsp;&emsp;族：</b><span>汉</span></li>
+                        <li><b>国&emsp;&emsp;籍：</b><span>中国</span></li>
+                        <li><b>身份证号：</b><span>142430199410163285</span></li>
+                        <li><b>户&emsp;&emsp;籍：</b><span>山西省晋中市祁县二级路李存山西省晋中市祁县二级路李存</span></li>
+                    </ul>
+                </div>
+                <div class="churuguilv_top_right_div_r">
+                    <h1 id="churuguilv_top_right_div_r_h1">更多信息<span><img src="../../img/gengduo.png" alt=""></span></h1>
+                    <div class="churuguilv_top_right_div_r_div" style="display:none">
+                        <div class="churuguilv_top_right_div_r_1">
+                            <h2>基本状况</h2>
+                            <ul>
+                                <li><b>学&emsp;&emsp;历：</b><span>本科</span></li>
+                                <li><b>职&emsp;&emsp;业：</b><span>公务员</span></li>
+                                <li><b>婚姻状况：</b><span>已婚</span></li>
+                                <li><b>单位名称：</b><span>瑞佳科技</span></li>
+                                <li><b>政治面貌：</b><span>群众</span></li>
+                                <li><b>单位性质：</b><span>私企</span></li>
+                                <li><b>从业状况：</b><span>在职</span></li>
+                                <li><b>登记时间：</b><span>2019-01-02</span></li>
+                            </ul>
+                        </div>
+                        <div class="churuguilv_top_right_div_r_2">
+                            <h2>住址详情</h2>
+                            <ul>
+                                <li><b>街&emsp;&emsp;道：</b><span>三间房</span></li>
+                                <li><b>社&emsp;&emsp;区：</b><span>艺水芳园居委会</span></li>
+                                <li><b>小&emsp;&emsp;区：</b><span>艺水芳园</span></li>
+                                <li><b>房间号码：</b><span>1号楼1单元201</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="churuguilv_bottom">
+        <div class="churuguilv_bottom_top">
+            <ul class="churuguilv_bottom_top_l">
+                <li class="pitch_on">出入记录</li>
+                <li>出行分析</li>
+                <li>告警信息</li>
+            </ul>
+            <div class="churuguilv_bottom_top_r">
+                <ul class="churuguilv_bottom_top_r_ul">
+                    <li>
+                        <input type="text" class="layui-input" autocomplete="off" id="churuguilv_start" placeholder="请输入日期/时间">
+                    </li>
+                    <span>至</span>
+                    <li>
+                        <input type="text" class="layui-input" autocomplete="off" id="churuguilv_end" placeholder="请输入日期/时间">
+                    </li>
+                </ul>
+                <img src="../../img/sousuo.png" alt="" id="churuguilv_btn">
+            </div>
+        </div>
+        <div class="churuguilv_bottom_table">
+            <div>
+                <table id="churuguilv_table_go" lay-filter="churuguilv_table_go"></table>
+                <script type="text/html" id="churuguilv_go_Demo">
+                    <a class="layui-btn" lay-event="push_photo">开门抓拍</a>
+                    <a class="layui-btn" lay-event="video">实时视频</a>
+                    <a class="layui-btn" lay-event="trailing_photo">尾随抓拍</a>
+                </script>
+            </div>
+            <div style="display:none">
+               <div class="churuguilv_bottom_left">
+                    <h1>近30天出入记录分析</h1>
+                    <ul>
+                        <li>近一个月晚归次数<span class="churuguilv_bottom_left_num">2</span>次</li>
+                        <li>最晚归来时间：</li>
+                        <li class="churuguilv_bottom_left_time">1月11日11:11:00</li>
+                    </ul>
+               </div>
+               <div class="churuguilv_bottom_right">
+                    <div id="travelAnalysis"></div>
+               </div>
+            </div>
+            <div style="display:none">
+                <table id="churuguilv_table_warn" lay-filter="churuguilv_table_warn"></table>
+                <script type="text/html" id="churuguilv_warn_Demo">
+                    <a class="layui-btn" lay-event="push_look">查看</a>
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!------------------- 人员告警 ==>(重点人员告警 4出入规律报警) 弹层  end---------------------->
+
+<!------------------- 人员告警 ==>7 SOS告警 弹层  start---------------------->
+<div class="sos" id="sos" style="display:none">
+    <div class="sos_title">SOS告警</div>
+    <div class="sos_top">
+        <div class="sos_top_left">
+            <!-- <img src="../../img/bkxzq.png" alt=""> -->
+        </div>
+        <div class="sos_top_right">
+            <div class="sos_top_right_title">
+                <div class="sos_top_right_name"></div>
+                <ul class="sos_top_right_title_ul">
+                    <li class="sos_top_oneHouse">一屋一档</li>
+                    <li class="sos_top_oneCar">一车一档</li>
+                </ul>
+                <ul class="sos_top_right_title_ul2">
+                    <li class="yezhu"></li>
+                    <li class="jingshenbing"></li>
+                    <li class="xingman"></li>
+                    <li class="gugua"></li>
+                </ul>
+            </div>
+            <div class="sos_top_right_div">
+                <div class="sos_top_right_div_l">
+                    <ul>
+                        <li><b>发生原因：</b><span></span></li>
+                        <li><b>发生时间：</b><span></span></li>
+                        <li><b>位&emsp;&emsp;置：</b><span></span></li>
+                        <li><b>状&emsp;&emsp;态：</b><span></span></li>
+                    </ul>
+                </div>
+                <div class="sos_top_right_div_r">
+                    <h1 id="sos_top_right_div_r_h1">处理信息<span><img src="../../img/gengduo.png" alt=""></span></h1>
+                    <div class="sos_top_right_div_r_div" style="display:none">
+                        <div class="sos_top_right_div_r_1">
+                            <ul>
+                                <li><b>完成时间：</b><span></span></li>
+                                <li><b>处理人员：</b><span></span></li>
+                                <li><b>处理结果：</b><span></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sos_bottom">
+        <div class="sos_bottom_top">
+            <ul class="sos_bottom_top_l">
+                <li>历史信息</li>
+            </ul>
+        </div>
+        <div class="sos_bottom_table">
+            <div>
+                <table id="sos_table_go"></table>
+            </div>
+        </div>
+    </div>
+</div>
+<!------------------- 人员告警 ==>7 SOS告警  弹层  end---------------------->
+
+<!------------------- 人员告警 ==>11 黑名单告警  弹层  start---------------------->
+<div class="black" id="black" style="display:none">
+    <div class="black_title">独居老人未出门告警</div>
+    <div class="black_top">
+        <div class="black_top_left">
+            <!-- <img src="../../img/bkxzq.png" alt="">
+            <img src="../../img/bkxzq.png" alt=""> -->
+        </div>
+        <div class="black_top_right">
+            <div class="black_top_right_title">
+                <div class="black_top_right_name"></div>
+                <ul class="black_top_right_title_ul">
+                    <li class="black_top_oneHouse">一屋一档</li>
+                    <li class="black_top_oneCar">一车一档</li>
+                </ul>
+                <ul class="black_top_right_title_ul2">
+                    <li class="yezhu"></li>
+                    <li class="jingshenbing"></li>
+                    <li class="xingman"></li>
+                    <li class="gugua"></li>
+                </ul>
+                <ul class="black_top_right_title_ul3">
+                    <li class="tongjifan"></li>
+                </ul>
+            </div>
+            <div class="black_top_right_div">
+                <div class="black_top_right_div_l">
+                    <ul>
+                        <li><b>发生原因：</b><span></span></li>
+                        <li><b>发生时间：</b><span></span></li>
+                        <li><b>监控时间：</b><span></span></li>
+                        <li><b>状&emsp;&emsp;态：</b><span></span></li>
+                    </ul>
+                </div>
+                <div class="black_top_right_div_r">
+                    <h1 id="black_top_right_div_r_h1">处理信息<span><img src="../../img/gengduo.png" alt=""></span></h1>
+                    <div class="black_top_right_div_r_div" style="display:none">
+                        <div class="black_top_right_div_r_1">
+                            <ul>
+                                <li><b>处理人员：</b><span></span></li>
+                                <li><b>位&emsp;&emsp;置：</b><span></span></li>
+                                <li><b>处理结果：</b><span></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!------------------- 人员告警 ==>11 黑名单告警  弹层  end---------------------->
+
+<!------------------- 房屋告警 ==>1 群租房告警 2出租房屋空置告警   弹层  start---------------------->
+
+<div class="qunzufang" id="qunzufang" style="display:none">
+    <div class="qunzufang_title">独居老人未出门告警</div>
+    <div class="qunzufang_top">
+        <div class="qunzufang_top_biaoqian">
+            <h1>本月第</h1>
+            <p>0次</p>
+        </div>
+        <div class="qunzufang_top_left">
+            <!-- <img src="../../img/bkxzq.png" alt=""> -->
+        </div>
+        <div class="qunzufang_top_right">
+            <div class="qunzufang_top_right_title">
+                <div class="qunzufang_top_right_name"></div>
+                <ul class="qunzufang_top_right_title_ul">
+                    <li class="qunzufang_top_oneHouse">一屋一档</li>
+                </ul>
+            </div>
+            <div class="qunzufang_top_right_div">
+                <div class="qunzufang_top_right_div_l">
+                    <ul>
+                        <li><b>发生原因：</b><span></span></li>
+                        <li><b>发生时间：</b><span></span></li>
+                        <li><b>位&emsp;&emsp;置：</b><span></span></li>
+                        <li><b>状&emsp;&emsp;态：</b><span></span></li>
+                    </ul>
+                </div>
+                <div class="qunzufang_top_right_div_r">
+                    <h1 id="qunzufang_top_right_div_r_h1">处理信息<span><img src="../../img/gengduo.png" alt=""></span></h1>
+                    <div class="qunzufang_top_right_div_r_div" style="display:none">
+                        <div class="qunzufang_top_right_div_r_1">
+                            <ul>
+                                <li><b>完成时间：</b><span></span></li>
+                                <li><b>处理人员：</b><span></span></li>
+                                <li><b>处理结果：</b><span></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="qunzufang_bottom">
+        <div class="qunzufang_bottom_top">
+            <ul class="qunzufang_bottom_top_l">
+                <li>历史信息</li>
+            </ul>
+        </div>
+        <div class="qunzufang_bottom_table">
+            <div>
+                <table id="qunzufang_table_go"></table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!------------------- 房屋告警 ==>1 群租房告警 2出租房屋空置告警  弹层  end---------------------->
+
+<!------------------- 设备告警 ==>6设备告警：门禁常开告警  8 烟感告警  弹层  start---------------------->
+<div class="yangan" id="yangan" style="display:none">
+    <div class="yangan_title">独居老人未出门告警</div>
+    <div class="yangan_top">
+        <div class="yangan_top_biaoqian">
+            <h1>本月第</h1>
+            <p>0次</p>
+        </div>
+        <div class="yangan_top_left">
+            <!-- <img src="../../img/bkxzq.png" alt=""> -->
+        </div>
+        <div class="yangan_top_right">
+            <div class="yangan_top_right_title">
+                <div class="yangan_top_right_name"></div>
+            </div>
+            <div class="yangan_top_right_div">
+                <div class="yangan_top_right_div_l">
+                    <ul>
+                        <li><b>发生原因：</b><span></span></li>
+                        <li><b>发生时间：</b><span></span></li>
+                        <li><b>位&emsp;&emsp;置：</b><span></span></li>
+                        <li><b>状&emsp;&emsp;态：</b><span></span></li>
+                    </ul>
+                </div>
+                <div class="yangan_top_right_div_r">
+                    <h1 id="yangan_top_right_div_r_h1">处理信息<span><img src="../../img/gengduo.png" alt=""></span></h1>
+                    <div class="yangan_top_right_div_r_div" style="display:none">
+                        <div class="yangan_top_right_div_r_1">
+                            <ul>
+                                <li><b>完成时间：</b><span></span></li>
+                                <li><b>处理人员：</b><span></span></li>
+                                <li><b>处理结果：</b><span></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="yangan_bottom">
+        <div class="yangan_bottom_top">
+            <ul class="yangan_bottom_top_l">
+                <li>历史信息</li>
+            </ul>
+        </div>
+        <div class="yangan_bottom_table">
+            <div>
+                <table id="yangan_table_go"></table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!------------------- 设备告警 ==>6设备告警：门禁常开告警  8 烟感告警  弹层  end---------------------->
+
+<!-------------------首页 重点人口 start---------------------->
+
+<div class="obtain_layer" id="obtain_layer" style="display:none">
+    <div class="obtain_layer_title">重点关注人员列表</div>
+    <div class="obtain_layer_top">
+        <ul class="obtain_layer_left">
+            <li>
+                <h1>精神病人</h1>
+                <p>0人</p>
+            </li>
+            <li>
+                <h1>刑满释放人员</h1>
+                <p>0人</p>
+            </li>
+            <li>
+                <h1>吸毒人员</h1>
+                <p>0人</p>
+            </li>
+            <li>
+                <h1>法轮功</h1>
+                <p>0人</p>
+            </li>
+        </ul>
+        <div class="obtain_layer_right">
+            <input type="text" autocomplete="off" placeholder="输入姓名、身份证号">
+            <img src="../../img/sousuo.png" alt="" id="obtain_layer_right_btn">
+        </div>
+    </div>
+    <div class="obtain_layer_table">
+        <table id="obtain_table" lay-filter="obtain_table"></table>
+        <script type="text/html" id="obtain_table_Demo">
+            {{# if( (d.household_code==null || d.household_id=='') && (d.household_code==null || d.household_id=='')  ){ }}
+            <a class="layui-btn" style="width:1.95rem;cursor:default;margin-left: 0rem;"></a>
+            {{#  } else { }}
+            <a class="layui-btn" lay-event="obtain_table_lock">一人一档</a>
+            {{#  } }}
+        </script>
+    </div>
+</div>
+
+
+<!-------------------首页 重点人口 end---------------------->
+
+<!-------------------首页 关注地区人口 start---------------------->
+
+<div class="focusAreas_layer" id="focusAreas_layer" style="display:none">
+    <div class="focusAreas_layer_title">关注地区人口</div>
+    <div class="focusAreas_layer_top">
+        <ul class="focusAreas_layer_left">
+            <li>
+                <h1>精神病人</h1>
+                <p>0人</p>
+            </li>
+            <li>
+                <h1>刑满释放人员</h1>
+                <p>0人</p>
+            </li>
+            <li>
+                <h1>吸毒人员</h1>
+                <p>0人</p>
+            </li>
+            <li>
+                <h1>法轮功</h1>
+                <p>0人</p>
+            </li>
+        </ul>
+        <div class="focusAreas_layer_right">
+            <input type="text" autocomplete="off" placeholder="输入姓名、身份证号">
+            <img src="../../img/sousuo.png" alt="" id="focusAreas_layer_right_btn">
+        </div>
+    </div>
+    <div class="focusAreas_layer_table">
+        <table id="focusAreas_table" lay-filter="focusAreas_table"></table>
+        <script type="text/html" id="focusAreas_table_Demo">
+            <a class="layui-btn" lay-event="focusAreas_table_lock">一人一档</a>
+        </script>
+    </div>
+</div>
+<!-------------------首页 关注地区人口 end---------------------->
+
+<!-------------------首页 黑名单 start---------------------->
+
+<div class="black_layer" id="black_layer" style="display:none">
+    <div class="black_layer_title">黑名单</div>
+    <div class="black_layer_top">
+        <ul class="black_layer_left">
+            <!-- <li>
+                <h1>精神病人</h1>
+                <p>10人</p>
+            </li>
+            <li>
+                <h1>刑满释放人员</h1>
+                <p>1000人</p>
+            </li>
+            <li>
+                <h1>吸毒人员</h1>
+                <p>1000人</p>
+            </li>
+            <li>
+                <h1>法轮功</h1>
+                <p>1000人</p>
+            </li> -->
+        </ul>
+        <div class="black_layer_right">
+            <input type="text" autocomplete="off" placeholder="输入姓名、身份证号">
+            <img src="../../img/sousuo.png" alt="" id="black_layer_right_btn">
+        </div>
+    </div>
+    <div class="black_layer_table">
+        <table id="black_table" lay-filter="black_table"></table>
+        <script type="text/html" id="black_table_Demo">
+            <a class="layui-btn" lay-event="black_table_lock">查看照片</a>
+        </script>
+    </div>
+</div>
+<!-------------------首页 黑名单 end---------------------->
+
+<!-------------------首页 陌生人 start---------------------->
+
+<div class="stranger_layer" id="stranger_layer" style="display:none">
+    <div class="stranger_layer_title">陌生人抓怕</div>
+    <div class="stranger_layer_top">
+        <div class="stranger_bottom_top_r">
+            <ul class="stranger_bottom_top_r_ul">
+                <li>
+                    <input type="text" class="layui-input" autocomplete="off" id="stranger_start" placeholder="请输入日期/时间">
+                </li>
+                <span>至</span>
+                <li>
+                    <input type="text" class="layui-input" autocomplete="off" id="stranger_end" placeholder="请输入日期/时间">
+                </li>
+            </ul>
+            <img src="../../img/sousuo.png" alt="" id="stranger_btn">
+        </div>
+    </div>
+    <div class="stranger_layer_bottom">
+        <ul class="stranger_layer_bottom_ul">
+            <li>
+                <dl>
+                    <dt><img src="../../img/sousuo.png" alt=""></dt>
+                    <dd>
+                        <p>抓怕的位置</p>
+                        <p>2019-01-02</p>
+                    </dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-------------------首页 陌生人 end---------------------->
+
+<!-------------------首页 设备->门禁start---------------------->
+
+<div class="home_device_layer" id="home_device_layer" style="display:none">
+    <div class="home_device_layer_title">门禁</div>
+    <div class="home_device_layer_table">
+        <table id="home_device_table" lay-filter="home_device_table"></table>
+        <script type="text/html" id="home_device_table_Demo">
+            <a class="layui-btn" lay-event="home_device_table_lock">查看</a>
+        </script>
+    </div>
+</div>
+<!-------------------首页 设备->门禁 end---------------------->
+<!-------------------首页 设备->监控start---------------------->
+
+<div class="home_monitor_layer" id="home_monitor_layer" style="display:none">
+    <div class="home_monitor_layer_title">监控</div>
+    <div class="home_monitor_layer_table">
+        <table id="home_monitor_table" lay-filter="home_monitor_table"></table>
+        <script type="text/html" id="home_monitor_table_Demo">
+            <a class="layui-btn" lay-event="home_monitor_table_lock">查看监控</a>
+
+            {{#  if(d.video_nvr_url != ''){ }}
+            <a class="layui-btn" lay-event="home_monitor_table_local" target="_blank" href={{d.video_nvr_url}}>查看本地</a>
+            {{#  } else { }}
+            <a class="layui-btn" style="width:1.95rem;cursor:default;margin-left: 0rem;"></ a>
+            {{#  } }}
+        </script>
+    </div>
+</div>
+
+<!-------------------首页 设备->监控 end---------------------->
+
+
+<!-------------------首页 房屋列表 start---------------------->
+
+<div class="houseList_layer" id="houseList_layer" style="display:none">
+    <div class="houseList_layer_title">房屋列表</div>
+    <div class="houseList_layer_top">
+        <ul class="houseList_layer_left">
+            <!-- <li>
+                <h1>精神病人</h1>
+                <p>10人</p>
+            </li>
+            <li>
+                <h1>刑满释放人员</h1>
+                <p>1000人</p>
+            </li>
+            <li>
+                <h1>吸毒人员</h1>
+                <p>1000人</p>
+            </li>
+            <li>
+                <h1>法轮功</h1>
+                <p>1000人</p>
+            </li> -->
+        </ul>
+        <div class="houseList_layer_right">
+            <input type="text" autocomplete="off" placeholder="输入房间号">
+            <img src="../../img/sousuo.png" alt="" id="houseList_layer_right_btn">
+        </div>
+    </div>
+    <div class="houseList_layer_table">
+        <table id="houseList_table" lay-filter="houseList_table"></table>
+        <script type="text/html" id="houseList_table_Demo">
+            <a class="layui-btn" lay-event="houseList_table_lock">一屋一档</a>
+        </script>
+    </div>
+</div>
+<!-------------------首页 房屋列表 end---------------------->
+
+<!-------------------首页 人口列表 start---------------------->
+
+<div class="peopleList_layer" id="peopleList_layer" style="display:none">
+    <div class="peopleList_layer_title">人口列表</div>
+    <div class="peopleList_layer_top">
+        <ul class="peopleList_layer_left">
+            <!-- <li>
+                <h1>精神病人</h1>
+                <p>10人</p>
+            </li>
+            <li>
+                <h1>刑满释放人员</h1>
+                <p>1000人</p>
+            </li>
+            <li>
+                <h1>吸毒人员</h1>
+                <p>1000人</p>
+            </li>
+            <li>
+                <h1>法轮功</h1>
+                <p>1000人</p>
+            </li> -->
+        </ul>
+        <div class="peopleList_layer_right">
+            <input type="text" autocomplete="off" placeholder="输入姓名、身份证号">
+            <img src="../../img/sousuo.png" alt="" id="peopleList_layer_right_btn">
+        </div>
+    </div>
+    <div class="peopleList_layer_table">
+        <table id="peopleList_table" lay-filter="peopleList_table"></table>
+        <script type="text/html" id="peopleList_table_Demo">
+            <a class="layui-btn" lay-event="peopleList_table_lock">一人一档</a>
+        </script>
+    </div>
+</div>
+<!-------------------首页 人口列表 end---------------------->
+
+<!-------------------首页 以图搜图 start---------------------->
+
+<div class="OneImg_layer" id="OneImg_layer" style="display:none">
+    <div class="OneImg_layer_title">以图搜图</div>
+    <div class="OneImg_layer_top">
+        <div class="OneImg_layer_top_div">
+            <div class="inputVal_div">
+                <div id="inputVal" value="80"><span>80以上</span><img src="../../img/sanjiao1.png"></div>
+                <ul class="input_ul">
+                    <li value="60">60以上</li>
+                    <li value="70">70以上</li>
+                    <li value="80">80以上</li>
+                    <li value="90">90以上</li>
+                    <li value="100">100</li>
+                </ul>
+            </div>    
+            <span class="inputVal_span">相似度</span>
+            <input type="text" autocomplete="off" placeholder="请输入图片地址" id="inputText">
+            <!-- <span class="inputVal_span" id="uploadimg" style="cursor:pointer"><i class="layui-icon"></i>上传图片</span> -->
+            <img src="../../img/sousuo.png" alt="" id="OneImg_layer_btn">
+            <input type="hidden" id="inputHidden">
+        </div>
+    </div>
+    <div class="OneImg_layer_table">
+        <table id="OneImg_table" lay-filter="OneImg_table"></table>
+        <script type="text/html" id="OneImg_table_Demo">
+            <a class="layui-btn" lay-event="OneImg_table_lock">一人一档</a>
+        </script>
+    </div>
+</div>
+<!-------------------首页 以图搜图 end---------------------->
+
+<!-------------------首页 今日居民出入列表 start---------------------->
+
+<div class="dayresidents_layer" id="dayresidents_layer" style="display:none">
+    <div class="dayresidents_layer_title">今日居民出入列表</div>
+    <div class="dayresidents_layer_top">
+        <div class="dayresidents_layer_top_tab">
+            <ul>
+                <li class="active" value="quanbu">全部</li>
+                <li value="hubei">湖北</li>
+            </ul>
+        </div>
+        <div class="dayresidents_layer_top_div">
+            <div class="inputVal_div">
+                <div class="inputVal" id="inputValue" value="0"><span>今天</span><img src="../../img/sanjiao1.png"></div>
+                <ul class="input_ul">
+                    <li value="0">今天</li>
+                    <li value="1">昨天</li>
+                </ul>
+            </div>    
+            <span class="inputVal_span">日期查询</span>
+        </div>
+    </div>
+    <div class="dayresidents_layer_table">
+        <table id="dayresidents_table" lay-filter="dayresidents_table"></table>
+        <script type="text/html" id="dayresidents_table_Demo">
+            <a class="layui-btn" lay-event="dayresidents_table_lock">一人一档</a>
+        </script>
+    </div>
+</div>
+<!-------------------首页 今日居民出入列表 end---------------------->
+<!-------------------首页 湖北人员列表 start---------------------->
+
+<div class="hubei_layer" id="hubei_layer" style="display:none">
+    <div class="hubei_layer_title">湖北人员列表</div>
+    <div class="hubei_layer_top">
+        <div class="hubei_layer_top_div">
+            <input type="text" id="hubei_input" placeholder="输入姓名或身份证号">
+            <button class="hubei_btn">查询</button>
+        </div>
+    </div>
+    <div class="hubei_layer_table">
+        <table id="hubei_table" lay-filter="hubei_table"></table>
+        <script type="text/html" id="hubei_table_Demo">
+            <a class="layui-btn" lay-event="hubei_table_lock">一人一档</a>
+        </script>
+    </div>
+</div>
+<!-------------------首页 湖北人员列表 end---------------------->
+<!-------------------首页 返程人员列表 start---------------------->
+
+<div class="back_layer" id="back_layer" style="display:none">
+        <div class="back_layer_title">返程人员列表</div>
+        <div class="back_layer_top">
+            <div class="back_layer_left">
+                <div class="back_layer_h1">未出入记录时间：</div>
+                <ul>
+                    <li>
+                        <input type="text" class="layui-input" autocomplete="off" id="back_start" placeholder="请输入日期">
+                    </li>
+                    <span>至</span>
+                    <li>
+                        <input type="text" class="layui-input" autocomplete="off" id="back_end" placeholder="请输入日期">
+                    </li>
+                </ul>
+            </div>
+            <div class="back_layer_top_div">
+                <input type="text" id="back_input" placeholder="输入姓名或身份证号">
+                <button class="back_btn">查询</button>
+            </div>
+        </div>
+        <div class="back_layer_table">
+            <table id="back_table" lay-filter="back_table"></table>
+            <script type="text/html" id="back_table_Demo">
+                <a class="layui-btn" lay-event="back_table_lock">一人一档</a>
+            </script>
+        </div>
+    </div>
+    <!-------------------首页 返程人员列表 end---------------------->
+<!-------------------首页 疫情预警列表 start---------------------->
+<div class="obtain_layer" id="yiqing_layer" style="display:none">
+    <div class="obtain_layer_title">疫情预警</div>
+    <div class="yiqing_layer_cont">
+      <ul>
+        <li id="epidemic_1"><h1>隔离人员出入告警</h1><p>0</p></li>
+        <li id="epidemic_2"><h1>隔离人员统计</h1><p>0</p></li>
+        <li id="epidemic_3"><h1>今日居民出入统计</h1><p>0</p></li>
+        <li id="epidemic_4"><h1>今日访客出入统计</h1><p>0</p></li>
+        <li id="epidemic_5"><h1>湖北人员统计</h1><p>0</p></li>
+        <li id="epidemic_6"><h1>返程人员统计</h1><p>0</p></li>
+      <ul>
+    </div>
+</div>
+<!-------------------首页 疫情预警列表 end---------------------->
+<!-------------------首页 echart政治面貌 start---------------------->
+<div class="politics_layer" id="politics_layer" style="display:none">
+    <div class="politics_layer_title">政治面貌</div>
+    <div class="politics_layer_top">
+        <ul class="politics_layer_left">
+            <li>
+                <h1>精神病人</h1>
+                <p>10人</p>
+            </li>
+            <li>
+                <h1>刑满释放人员</h1>
+                <p>1000人</p>
+            </li>
+            <li>
+                <h1>吸毒人员</h1>
+                <p>1000人</p>
+            </li>
+            <li>
+                <h1>法轮功</h1>
+                <p>1000人</p>
+            </li>
+        </ul>
+        <div class="politics_layer_right">
+            <input type="text" autocomplete="off" placeholder="输入姓名、身份证号">
+            <img src="../../img/sousuo.png" alt="" id="politics_layer_right_btn">
+        </div>
+    </div>
+    <div class="politics_layer_table">
+        <table id="politics_table" lay-filter="politics_table"></table>
+        <script type="text/html" id="politics_table_Demo">
+            <a class="layui-btn" lay-event="politics_table_lock">一人一档</a>
+        </script>
+    </div>
+</div>
+
+<!-------------------首页  echart政治面貌  end---------------------->
+<!-------------------首页 echart户籍统计 start---------------------->
+<div class="houseStatistics_layer" id="houseStatistics_layer" style="display:none">
+    <div class="houseStatistics_layer_title">户籍统计</div>
+    <div class="houseStatistics_layer_top">
+        <ul class="houseStatistics_layer_left">
+            <li>
+                <h1>精神病人</h1>
+                <p>10人</p>
+            </li>
+            <li>
+                <h1>刑满释放人员</h1>
+                <p>1000人</p>
+            </li>
+            <li>
+                <h1>吸毒人员</h1>
+                <p>1000人</p>
+            </li>
+            <li>
+                <h1>法轮功</h1>
+                <p>1000人</p>
+            </li>
+        </ul>
+        <div class="houseStatistics_layer_right">
+            <input type="text" autocomplete="off" placeholder="输入姓名、身份证号">
+            <img src="../../img/sousuo.png" alt="" id="houseStatistics_layer_right_btn">
+        </div>
+    </div>
+    <div class="houseStatistics_layer_table">
+        <table id="houseStatistics_table" lay-filter="houseStatistics_table"></table>
+        <script type="text/html" id="houseStatistics_table_Demo">
+            <a class="layui-btn" lay-event="houseStatistics_table_lock">一人一档</a>
+        </script>
+    </div>
+</div>
+
+<!-------------------首页  echart户籍统计  end---------------------->
+<!-------------------首页 echart特殊人群 start---------------------->
+<div class="special_layer" id="special_layer" style="display:none">
+    <div class="special_layer_title">特殊人群统计</div>
+    <div class="special_layer_top">
+        <ul class="special_layer_left">
+            <li>
+                <h1>精神病人</h1>
+                <p>10人</p>
+            </li>
+            <li>
+                <h1>刑满释放人员</h1>
+                <p>1000人</p>
+            </li>
+            <li>
+                <h1>吸毒人员</h1>
+                <p>1000人</p>
+            </li>
+            <li>
+                <h1>法轮功</h1>
+                <p>1000人</p>
+            </li>
+        </ul>
+        <div class="special_layer_right">
+            <input type="text" autocomplete="off" placeholder="输入姓名、身份证号">
+            <img src="../../img/sousuo.png" alt="" id="special_layer_right_btn">
+        </div>
+    </div>
+    <div class="special_layer_table">
+        <table id="special_table" lay-filter="special_table"></table>
+        <script type="text/html" id="special_table_Demo">
+            <a class="layui-btn" lay-event="special_table_lock">一人一档</a>
+        </script>
+    </div>
+</div>
+
+<!-------------------首页  echart特殊人群  end---------------------->
+<!-------------------首页 echart外来人口籍贯 start---------------------->
+<div class="external_layer" id="external_layer" style="display:none">
+    <div class="external_layer_title">外来人口籍贯统计</div>
+    <div class="external_layer_top" id="external_layer_top">
+        <ul class="external_layer_left">
+            <li>
+                <p>
+                    <span>河北</span>
+                    <b>10人</b>
+                </p>
+                <p>
+                    <span>新疆</span>
+                    <b>10人</b>
+                </p>
+                <p>
+                    <span>山东</span>
+                    <b>10人</b>
+                </p>
+                <p>
+                    <span>河南</span>
+                    <b>10人</b>
+                </p>
+                <p>
+                    <span>山西</span>
+                    <b>10人</b>
+                </p>
+                <p>
+                    <span>北京</span>
+                    <b>10人</b>
+                </p>
+            </li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="external_layer_button">
+            <img src="../../img/button_top.png" alt="" id="external_layer_button_top">
+            <img src="../../img/button_btm.png" alt="" id="external_layer_button_btm">
+        </div>
+        <div class="external_layer_right">
+            <input type="text" autocomplete="off" placeholder="输入姓名、身份证号">
+            <img src="../../img/sousuo.png" alt="" id="external_layer_right_btn">
+        </div>
+    </div>
+    <div class="external_layer_table">
+        <table id="external_table" lay-filter="external_table"></table>
+        <script type="text/html" id="external_table_Demo">
+            <a class="layui-btn" lay-event="external_table_lock">一人一档</a>
+        </script>
+    </div>
+</div>
+
+<!-------------------首页  echart外来人口籍贯  end---------------------->
+
+
+
+<!-------------------首页  echart从业状况  start---------------------->
+<div class="take_layer" id="take_layer" style="display:none">
+    <div class="take_layer_title">从业状况统计</div>
+    <div class="take_layer_top">
+        <ul class="take_layer_left">
+            <li>
+                <h1>精神病人</h1>
+                <p>10人</p>
+            </li>
+            <li>
+                <h1>刑满释放人员</h1>
+                <p>1000人</p>
+            </li>
+            <li>
+                <h1>吸毒人员</h1>
+                <p>1000人</p>
+            </li>
+            <li>
+                <h1>法轮功</h1>
+                <p>1000人</p>
+            </li>
+        </ul>
+        <div class="take_layer_right">
+            <input type="text" autocomplete="off" placeholder="输入姓名、身份证号">
+            <img src="../../img/sousuo.png" alt="" id="take_layer_right_btn">
+        </div>
+    </div>
+    <div class="take_layer_table">
+        <table id="take_table" lay-filter="take_table"></table>
+        <script type="text/html" id="take_table_Demo">
+            <a class="layui-btn" lay-event="take_table_lock">一人一档</a>
+        </script>
+    </div>
+</div>
+
+<!-------------------首页  echart从业状况  end---------------------->
+
+<!-------------------首页  echart民族分布  start---------------------->
+<div class="nation_layer" id="nation_layer" style="display:none">
+    <div class="nation_layer_title">民族分布统计</div>
+    <div class="nation_layer_top">
+        <ul class="nation_layer_left">
+            <li>
+                <h1>精神病人</h1>
+                <p>10人</p>
+            </li>
+            <li>
+                <h1>刑满释放人员</h1>
+                <p>1000人</p>
+            </li>
+            <li>
+                <h1>吸毒人员</h1>
+                <p>1000人</p>
+            </li>
+            <li>
+                <h1>法轮功</h1>
+                <p>1000人</p>
+            </li>
+        </ul>
+        <div class="nation_layer_right">
+            <input type="text" autocomplete="off" placeholder="输入姓名、身份证号">
+            <img src="../../img/sousuo.png" alt="" id="nation_layer_right_btn">
+        </div>
+    </div>
+    <div class="nation_layer_table">
+        <table id="nation_table" lay-filter="nation_table"></table>
+        <script type="text/html" id="nation_table_Demo">
+            <a class="layui-btn" lay-event="nation_table_lock">一人一档</a>
+        </script>
+    </div>
+</div>
+
+<!-------------------首页  echart民族分布  end---------------------->
+
+
+<!-------------------首页 echart房屋占比 start---------------------->
+<div class="houseProportion_layer" id="houseProportion_layer" style="display:none">
+    <div class="houseProportion_layer_title">房屋占比统计</div>
+    <div class="houseProportion_layer_top">
+        <ul class="houseProportion_layer_left">
+            <li>
+                <h1>精神病人</h1>
+                <p>10人</p>
+            </li>
+            <li>
+                <h1>刑满释放人员</h1>
+                <p>1000人</p>
+            </li>
+            <li>
+                <h1>吸毒人员</h1>
+                <p>1000人</p>
+            </li>
+            <li>
+                <h1>法轮功</h1>
+                <p>1000人</p>
+            </li>
+        </ul>
+        <div class="houseProportion_layer_right">
+            <input type="text" autocomplete="off" placeholder="输入房间号">
+            <img src="../../img/sousuo.png" alt="" id="houseProportion_layer_right_btn">
+        </div>
+    </div>
+    <div class="houseProportion_layer_table">
+        <table id="houseProportion_table" lay-filter="houseProportion_table"></table>
+        <script type="text/html" id="houseProportion_table_Demo">
+            <a class="layui-btn" lay-event="houseProportion_table_lock">一屋一档</a>
+        </script>
+    </div>
+</div>
+
+<!-------------------首页  echart房屋占比  end---------------------->
+
+
+<!-------------------一人一档  出行记录开门抓拍  start---------------------->
+<div class="onePeoplePush_photo" id="onePeoplePush_photo" style="display:none">
+    <div class="onePeoplePush_photo_title">门禁抓拍照片</div>
+    <div class="onePeoplePush_photo_top">
+        <h1>姓&emsp;&emsp;名：</h1>
+        <p><b>时&emsp;&emsp;间：</b><span><img src="../../img/weizhi.png"></span></p>
+    </div>
+    <div class="onePeoplePush_photo_bottom"></div>
+</div>
+<!-------------------一人一档  出行记录开门抓拍  end---------------------->
+
+<!-------------------监控  以时间段搜索监控  start---------------------->
+<div class="monitorTime" id="monitorTime" style="display:none">
+    <div class="monitorTime_title">监控</div>
+    <div class="monitorTime_top">
+        <ul class="monitorTime_left">
+            <li>
+                <input type="text" class="layui-input" autocomplete="off" id="monitorTime_start" placeholder="请输入日期/时间">
+            </li>
+            <span>至</span>
+            <li>
+                <input type="text" class="layui-input" autocomplete="off" id="monitorTime_end" placeholder="请输入日期/时间">
+            </li>
+            <img src="../../img/sousuo.png" id="monitorTime_btn">
+        </ul>
+    </div>
+    <div class="monitorTime_bottom">
+    </div>
+</div>
+<!-------------------监控  以时间段搜索监控  end---------------------->
+
+<!-------------------监控  全部监控  start---------------------->
+<div class="monitorALL" id="monitorALL" style="display:none">
+
+</div>
+<!-------------------监控  全部监控  end---------------------->
+
+
+<!-------------------一车一档  车俩抓拍  start---------------------->
+<div class="oneCarPush_photo" id="oneCarPush_photo" style="display:none">
+    <div class="oneCarPush_photo_title">车辆抓拍照片</div>
+    <div class="oneCarPush_photo_top">
+        <h1>姓&emsp;&emsp;名：</h1>
+        <p><b>时&emsp;&emsp;间：</b><span><img src="../../img/weizhi.png"></span></p>
+    </div>
+    <div class="oneCarPush_photo_bottom"></div>
+</div>
+<!-------------------一车一档  车俩抓拍  end---------------------->
+
+
+<!-------------------map  出租房空置提醒  start---------------------->
+<div class="houseVacancy" id="houseVacancy" style="display:none">
+    <!--  houseVacancyclass   出租房空置、群租房 告警皮肤  -->
+    <!--  soswarnclass  sos告警、黑名单               -->
+    <!--  equipmentclass  设备烟感门禁告警               -->
+    <div class="houseVacancyDiv"></div>
+   <div class="houseVacancyImg">
+        <img src="../../img/man.png" alt="">
+        <img src="../../img/man.png" alt="">
+        <b></b>
+    </div>
+</div>
+
+
+<!-------------------map 出租房空置提醒  end---------------------->
+
+<!-------------------map 楼栋  start---------------------->
+
+<div class="louceng_layer" id="louceng_layer" style="display:none">
+    <!-- <div class="swiper-container gallery-top"> -->
+        <!-- <div class="swiper-wrapper"> -->
+            <!-- <div class="swiper-slide">
+                <div class="louceng_layer_title">119号楼(220人)</div>
+                <div class="louceng_layer_top">
+                    <div class="louceng_layer_top_img"><img src="../../img/roof.png" alt=""></div>
+                    <div class="louceng_layer_top_left">楼层</div>
+                    <div class="louceng_layer_top_right">
+                        <ul>
+                            <li>重点1人</li>
+                            <li>特殊2人</li>
+                            <li>疑似群租3间</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="louceng_layer_tottom">
+                    <div class="louceng_layer_tottom_div_1">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>1层</td>
+                                </tr>
+                                <tr>
+                                    <td>1层</td>
+                                </tr>
+                                <tr>
+                                    <td>1层</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="louceng_layer_tottom_div_2">
+                        <table class="louceng_layer_tottom_table">
+                            <tbody>
+                                <tr>
+                                    <td><span>10234室</span></td>
+                                    <td><span>10234室</span></td>
+                                    <td><span>10234室</span></td>
+
+                                </tr>
+                                <tr>
+                                    <td><span>10234室</span></td>
+                                    <td><span>10234室</span></td>
+                                    <td><span>10234室</span></td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="swiper-slide">
+            1
+            </div>
+            <div class="swiper-slide">
+                    2
+            </div>
+            <div class="swiper-slide">
+                    3
+            </div>
+            <div class="swiper-slide">
+                    4
+            </div> -->
+        <!-- </div> -->
+    <!-- </div> -->
+    <!-- <div class="swiper-container gallery-thumbs"> -->
+        <!-- <div class="swiper-wrapper"> -->
+            <!-- <div class="swiper-slide">0</div>
+            <div class="swiper-slide">1</div>
+            <div class="swiper-slide">2</div>
+            <div class="swiper-slide">3</div>
+            <div class="swiper-slide">4</div> -->
+        <!-- </div> -->
+    <!-- </div> -->
+    <!-- <div class="swiper-button-next swiper-button-white" style="margin-top: 6.5rem"></div>
+    <div class="swiper-button-prev swiper-button-white" style="margin-top: 6.5rem"></div> -->
+</div>
+
+
+<!-------------------map 楼栋  end---------------------->
+
+<!-------------------map 门禁详情  start---------------------->
+
+<div class="mapdoorinfo" id="mapdoorinfo" style="display:none">
+    <div class="mapdoorinfo_title"></div>
+    <div class="swiper-container gallery-top">
+        <!-- <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="mapdoorinfo_div">
+                    <img src="../../img/menjinicon.png">
+                    <ul>
+                        <li><b>设备编码：</b><span></span></li>
+                        <li><b>设备类型：</b><span></span></li>
+                        <li><b>安装位置：</b><span></span></li>
+                        <li><b>经&nbsp;纬&nbsp;度：</b><span></span></li>
+                        <li><b>设备型号：</b><span></span></li>
+                        <li><b>系统版本：</b><span></span></li>
+                        <li><b>安装日期：</b><span></span></li>
+                        <li><b>启动日期：</b><span></span></li>
+                        <li><b>运行状态：</b><span></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <div class="swiper-container gallery-thumbs">
+        <!-- <div class="swiper-wrapper"> -->
+            <!-- <div class="swiper-slide"></div> -->
+        <!-- </div> -->
+    </div>
+    <!-- <div class="swiper-button-next swiper-button-white"></div>
+    <div class="swiper-button-prev swiper-button-white"></div> -->
+</div>
+
+
+<!-------------------map 门禁详情  end---------------------->
+
+<!-------------------map 人员通行记录 弹层  start---------------------->
+<div class="peopleThrough_layer" id="peopleThrough_layer" style="display:none">
+    <div class="peopleThrough_layer_title">人员通行记录列表</div>
+    <div class="peopleThrough_layer_top">
+        <div class="peopleThrough_layer_right">
+            <input type="text" autocomplete="off" placeholder="输入姓名" id="peopleThrough_layer_right_input">
+            <img src="../../img/sousuo.png" alt="" id="peopleThrough_layer_btn">
+        </div>
+        <ul class="peopleThrough_layer_left">
+            <li>
+                <input type="text" class="layui-input" autocomplete="off" id="peopleThrough_table_start" placeholder="请输入日期/时间">
+            </li>
+            <span>至</span>
+            <li>
+                <input type="text" class="layui-input" autocomplete="off" id="peopleThrough_table_end" placeholder="请输入日期/时间">
+            </li>
+        </ul>
+    </div>
+    <div class="peopleThrough_layer_table">
+        <input type="hidden" value="1" id="pageNumber_people"> 
+        <table id="peopleThrough_table" lay-filter="peopleThrough_table"></table>
+        <script type="text/html" id="peopleThrough_table_Demo">
+            {{#  if(d.images_url_status == '1'){ }}
+            <a class="layui-btn" lay-event="push_photo">开门抓拍</a>
+            {{#  } else { }}
+            <a class="layui-btn" style="width:1.95rem;cursor:default;margin-left: 0rem;"></a>
+            {{#  } }}
+
+            {{#  if(d.video_url_status == '1'){ }}
+            <a class="layui-btn" lay-event="video">实时视频</a>
+            {{#  } else { }}
+            <a class="layui-btn" style="width:1.95rem;cursor:default;margin-left: 0rem;"></a>
+            {{#  } }}
+
+            <!-- {{#  if(d.tailing_url_status == '1'){ }}
+            <a class="layui-btn" lay-event="trailing_photo">尾随抓拍</a>
+            {{#  } else { }}
+            <a class="layui-btn" style="width:1.95rem;cursor:default;margin-left: 0rem;"></a>
+            {{#  } }} -->
+        </script>
+    </div>
+</div>
+<!-------------------map 人员通行记录 弹层  end---------------------->
+
+<!-------------------map 车辆通行记录 弹层  start---------------------->
+
+
+<div class="carThrough_layer" id="carThrough_layer" style="display:none">
+    <div class="carThrough_layer_title">车辆通行记录列表</div>
+    <div class="carThrough_layer_top">
+        <div class="carThrough_layer_right">
+            <input type="text" autocomplete="off" placeholder="车牌号/姓名" id="carThrough_layer_right_input">
+            <img src="../../img/sousuo.png" alt="" id="carThrough_layer_btn">
+        </div>
+        <ul class="carThrough_layer_left">
+            <li>
+                <input type="text" class="layui-input" autocomplete="off" id="carThrough_table_start" placeholder="请输入日期/时间">
+            </li>
+            <span>至</span>
+            <li>
+                <input type="text" class="layui-input" autocomplete="off" id="carThrough_table_end" placeholder="请输入日期/时间">
+            </li>
+        </ul>
+    </div>
+    <div class="carThrough_layer_table">
+        <table id="carThrough_table" lay-filter="carThrough_table"></table>
+        <input type="hidden" value="1" id="pageNumber_car"> 
+        <script type="text/html" id="carThrough_table_Demo">
+            <a class="layui-btn" lay-event="push_photo">抓拍照片</a>
+        </script>
+    </div>
+</div>
+
+
+<!-------------------map 车辆通行记录 弹层  end---------------------->
+
+<!------------------- 门禁、烟感 详情  start---------------------->
+
+<div class="doorsmokeinfo" id="doorsmokeinfo" style="display:none">
+    <div class="doorsmokeinfo_title"></div>
+        <div class="doorsmokeinfo_div">
+            <img src="../../img/menjinicon.png">
+            <ul>
+                <li><b>设备编码：</b><span></span></li>
+                <li><b>设备类型：</b><span></span></li>
+                <li><b>安装位置：</b><span></span></li>
+                <li><b>经&nbsp;纬&nbsp;度：</b><span></span></li>
+                <li><b>设备型号：</b><span></span></li>
+                <li><b>系统版本：</b><span></span></li>
+                <li><b>安装日期：</b><span></span></li>
+                <li><b>启动日期：</b><span></span></li>
+                <li><b>运行状态：</b><span></span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-------------------门禁、烟感 详情  end---------------------->
+
+<!-------------------门禁 详情 （最新ui模板） start---------------------->
+
+<div class="DOOR_INFO" id="DOOR_INFO" style="display:none">
+    <div class="DOOR_INFO_title"></div>
+    <div class="DOOR_INFO_top">
+        <div class="DOOR_INFO_top_left">
+            <img src="../../img/menjinicon.png" alt="">
+        </div>
+        <div class="DOOR_INFO_top_right">
+            <div class="DOOR_INFO_top_right_title">
+                <h1 class="DOOR_INFO_top_right_title_h1"><b>设备类型：</b><span>门禁机</span></h1>
+            </div>
+            <div class="DOOR_INFO_top_right_div">
+                <ul>
+                    <li><b>设备编码：</b><span></span></li>
+                    <li><b>运行状态：</b><span></span></li>
+                    <li><b>经&nbsp;纬&nbsp;度：</b><span></span></li>
+                    <li><b>设备型号：</b><span></span></li>
+                </ul>
+                <ul>
+                    <li><b>安装位置：</b><span></span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="DOOR_INFO_bottom">
+        <div class="DOOR_INFO_bottom_top">
+            <ul class="DOOR_INFO_bottom_top_l">
+                <!-- <li class="pitch_on">人员通行记录</li> -->
+            </ul>
+            <div class="DOOR_INFO_bottom_top_r">
+                <div class="DOOR_INFO_layer_right">
+                    <input type="text" autocomplete="off" placeholder="请输入开门/被访者" class="DOOR_INFO_layer_right_input">
+                    <img src="../../img/sousuo.png" alt="" id="DOOR_INFO_layer_right_btn">
+                </div>
+                <ul class="DOOR_INFO_bottom_top_r_ul">
+                    <li>
+                        <input type="text" class="layui-input" autocomplete="off" id="DOOR_INFO_start" placeholder="请输入日期/时间">
+                    </li>
+                    <span>至</span>
+                    <li>
+                        <input type="text" class="layui-input" autocomplete="off" id="DOOR_INFO_end" placeholder="请输入日期/时间">
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+        <div class="DOOR_INFO_bottom_table">
+            <div>
+                <table id="DOOR_INFO_table_go" lay-filter="DOOR_INFO_table_go"></table>
+                <script type="text/html" id="DOOR_INFO_go_Demo">
+                    {{#  if(d.images_url_status == '1'){ }}
+                    <a class="layui-btn" lay-event="push_photo">开门抓拍</a>
+                    {{#  } else { }}
+                    <a class="layui-btn" style="width:1.95rem;cursor:default;margin-left: 0rem;"></a>
+                    {{#  } }}
+
+                    {{#  if(d.video_url_status == '1'){ }}
+                    <a class="layui-btn" lay-event="video">实时视频</a>
+                    {{#  } else { }}
+                    <a class="layui-btn" style="width:1.95rem;cursor:default;margin-left: 0rem;"></a>                        
+                    {{#  } }}
+
+                    <!-- {{#  if(d.tailing_url_status == '1'){ }}
+                    <a class="layui-btn" lay-event="trailing_photo">尾随抓拍</a>
+                    {{#  } else { }}
+                    <a class="layui-btn" style="width:1.95rem;cursor:default;margin-left: 0rem;"></a>                        
+                    {{#  } }} -->
+                    
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-------------------门禁 详情 （最新ui模板） end---------------------->

@@ -1,0 +1,507 @@
+@font-face {
+  font-family: SourceHanSans;
+  src:url('./../../fonts/baseFont.otf') format('otf'),
+      url('./../../fonts/baseFont.ttf') format('ttf');
+}
+@base:SourceHanSans;
+@baseSize:.48rem;
+#mapContainer{
+  width: 100%;
+  height:19.06rem;
+  // height:29.7rem;
+  position: relative;
+  cursor: auto !important;
+  .amap-maps{
+    background: url(../../img/bg.jpg) no-repeat;
+  }
+  .mapLeft,.mapCenter,.mapRight{
+    float: left;
+    .mapTitleBox{
+      img{
+        width: 0.7rem;
+        height: auto;
+      }
+    }
+  }
+  .mapTitleBox{
+    overflow: hidden;
+    margin: 0 0 .5rem 0;
+    .mapTitle{
+      font-size: .64rem;
+      color: #fff;
+      float: left;
+      text-shadow: .06rem .06rem .01rem rgba(12, 69, 255, 0.9);
+      font-weight: 200;
+    }
+    img{
+      float: right;
+      cursor: pointer;
+    }
+  }
+  .mapLeft{
+    width: 12.2rem;
+    height: 100%;
+    z-index: 99;
+    position: relative;
+    .mapLeftDIV{
+      width: 11.6rem;
+      height: 100%;
+      position: relative;
+      margin-left: 0.6rem;
+      .mapLeft_switch{
+        width: 6.2rem;
+        height: 0.84rem;
+        position: absolute;
+        z-index: 99;
+        right: -7rem;
+        top: 0.4rem;
+        ul{
+          width: 100%;
+          height: 100%;
+          li{
+            width: 3.1rem;
+            height: .84rem;
+            line-height: .84rem;
+            font-size: .56rem;
+            color: #fff;
+            float: left;
+            text-align: center;
+            &:nth-child(1){
+              background: url('../../img/pmk.png') no-repeat;
+              background-size: 100% 100%;
+            }
+            &:nth-child(2){
+                background: url('../../img/weixuanzhong.png') no-repeat;
+                background-size: 100% 100%;
+            }
+          }
+        }
+      }
+      .mapRight_switch{
+        width: 7.1rem;
+        height: 0.84rem;
+        position: absolute;
+        z-index: 99;
+        left: 36.8rem;
+        top: 0.4rem;
+        .mapRight_switch_ul{
+          width: 100%;
+          height: 100%;
+          >li{
+            height: .84rem;
+            line-height: .84rem;
+            font-size: .56rem;
+            color: #fff;
+            float: left;
+            text-align: center;
+            &:nth-child(1){
+              background: url('../../img/xqk.png') no-repeat;
+              background-size: 100% 100%;
+              width: 3.1rem;
+            }
+            &:nth-child(2){
+                background: url('../../img/qbk.png') no-repeat;
+                background-size: 100% 100%;
+                width: 4rem;
+                cursor: pointer;
+                .mapRight_cont {
+                  // width: 19.14rem;
+                  // height:17.34rem;
+                  width: max-content;
+                  height: auto;
+                  position: absolute;
+                  left:0.8rem;
+                  top: 0.84rem;
+                  z-index: 99;
+                  padding-top: 0.26rem;
+                  .mapRight_cont_ul{
+                    display: none;
+                    width: 6.38rem;
+                    height: 15.34rem;
+                    overflow-y: auto;
+                    float: left;
+                    background: url('../../img/xiala2.png') no-repeat;
+                    background-size: 100% 100%;
+                    img {
+                      width: .6rem;
+                      height: auto;
+                      position: absolute;
+                      top: 0rem;
+                      left: 4rem;
+                    }
+                    li{
+                      width: auto;
+                      //padding: .4rem 0 .4rem .63rem;
+                      padding-left: .63rem;
+                      height: 1.3rem;
+                      line-height: 1.3rem;
+                      font-size: @baseSize;
+                      color: #fff;
+                      white-space: nowrap;
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                      text-align: left;
+                      cursor: pointer;
+                      &:hover {
+                        cursor: pointer;
+                        color: #fff44b;
+                        text-decoration: underline;
+                      }
+                    }
+                    .on {
+                      color: #fff44b !important;
+                      text-decoration: underline;
+                    }
+                  }
+                  
+                }
+            }
+          }
+        }
+      
+      }
+      .peopleWarn,.houseWarn,.diviceWarn{
+        position: absolute;
+        width: 100%;
+        height:5.85rem;
+        padding: 1rem .64rem .64rem;
+        background: url("../../img/dituyezuo.png");
+        background-size: 100% 100%;
+        z-index: 99;
+        .warnList{
+          height: 3.4rem;
+          li{
+            list-style: none;
+            float: left;
+            width: 25%;
+            height: 100%;
+            text-align: center;
+            dl{
+              height: 100%;
+              dt{
+                height: 1.58rem;
+                margin-bottom: .4rem;
+                cursor: pointer;
+                  img{
+                    width:.85rem;
+                    height: .96rem;
+                    display: block;
+                    margin: auto;
+                    margin-bottom: .1rem;
+                  }
+                  p{
+                    font-size:.48rem;
+                    color: #fff;
+                  }
+              }
+              dd{
+                font-size: .34rem;
+                color: #36eeff;
+                cursor: pointer;  
+                white-space: nowrap;
+                span{
+                  font-size: .38rem;
+                }
+                &:nth-of-type(1){
+                  margin-bottom: .3rem;
+                }
+                &:nth-of-type(2){
+                  opacity: 0.6;
+                }
+              }
+            }
+          }
+        }
+      }
+      .peopleWarn{
+
+      }
+      .houseWarn{
+        top: 6.6rem;
+      }
+      .diviceWarn{
+        bottom: 0;
+      }
+    }
+
+  }
+  .mapCenter{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 .6rem;
+    .device_door_Info_close{
+      position: absolute;
+      right: 0.02rem;
+      top: 0.02rem;
+      font-size: 0.4rem;
+      cursor: pointer
+    }
+    .device_door_Info_ul{
+      background: #0f1080;
+      width: auto;
+      height: auto;
+      padding:0.3rem;
+      border-radius: 0.2rem;
+      position: relative;
+      // min-width: 10rem;
+      overflow: hidden;
+      .device_door_Info{
+        font-size: 0.4rem;
+        color:#fff;
+        height: 0.5rem;
+        width: auto;
+        line-height: 0.5rem;
+        cursor: pointer;
+        float: left;
+        box-sizing: border-box;
+        text-align: center;
+        padding: 0 0.15rem;
+      }
+    }
+  }
+  .mapRight{
+    position: absolute;
+    width:12.2rem;
+    height: 100%;
+    z-index: 99;
+    right: 0px;
+    .mapRightDIV{
+      width:11.6rem;
+      height: 100%;
+      background: url("../../img/dituyeyoubian.png");
+      background-size: 100% 100%;
+      padding: 1rem .64rem .64rem;
+      .person-list,.car-list{
+        height: 9.6rem;
+        list-style: none;
+        overflow: hidden;
+        li{
+          height: 1.6rem;
+          p{
+            overflow: hidden;
+            &:nth-of-type(1){
+              margin-bottom: .4rem;
+              span:not(:first-child){
+                float: right;
+                margin-left: 0.26rem;
+              }
+            }
+            .name{
+              cursor: pointer;
+              &:hover{
+                color:#24ffff;
+              }
+            }
+          }
+          &:not(:last-child){
+            margin-bottom: .4rem;
+          }
+          .vator{
+            width: 1.6rem;
+            height: 1.6rem;
+            float: left;
+            cursor: pointer;
+          }
+          .detailInfo{
+            float: right;
+            height: 100%;
+            width: 8.33rem;
+            margin-top:.22rem;
+            p{
+              img{
+                width: .3rem;
+                height: auto;
+                display: block;
+                float: left;
+                margin-right: 0.2rem;
+              }
+            }
+            .name,.role,.video,.picImg,.address,.time{
+              float: left;
+            }
+            .name{
+              font-size:.52rem;
+              color:#feffff;
+              margin-right: .45rem;
+              height: .6rem;
+              width: 4rem;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+            .role,.video,.picImg{
+              width: 1.68rem;
+              height: .44rem;
+              line-height:.44rem;
+              border-radius: .08rem;
+              border: 0.02rem solid #2189ff;
+              font-size: .34rem;
+              color: #fff;
+              text-align: center;
+              white-space: nowrap; 
+            }
+            .address,.time{
+              font-size: .34rem;
+              color: #bcfeff;
+              opacity: 0.81;
+            }
+            .address{
+              width:4rem;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              margin-right:.2rem;
+            }
+            .time{
+              width: 3.6rem;
+              text-align: right;
+            }
+          }
+          .video{
+            cursor: pointer;
+            background: url(../../img/shipinganniu.png) no-repeat;
+            background-size: 100% 100%;
+            border: none !important;
+            &:hover{
+              background: url(../../img/anniuyiru.png) no-repeat;
+              background-size: 100% 100%;
+              border: none !important;
+            }
+          }
+          .picImg{
+            cursor: pointer;
+            display: none;
+          }
+        }
+      }
+      .person-list{
+        li{
+          .vator{
+            background: url(../../img/touxiangicon.png) no-repeat;
+            background-size: 100% 100%;
+          }
+          
+        }
+      }
+      .tab{
+        width:10.32rem;
+        height: 13.33rem;
+        position: absolute;
+      }
+    //.bottom{
+    //  margin-top: -.4rem;
+    //}
+      .personTotal,.carTotal{
+        width: 100%;
+        padding:.37rem 0 .79rem;
+        height:2.34rem;
+        background: url("../../img/personToggle.png");
+        background-size: 100% 100%;
+        margin-bottom: .26rem;
+        position: relative;
+        li{
+          list-style: none;
+        }
+        li:not(:last-child){
+          width: 50%;
+          height: 100%;
+          float: left;
+          dl{
+            height: 100%;
+          }
+          dl,dt,dd{
+            width: 100%;
+            text-align: center;
+          }
+          dt{
+            color: #ffee35;
+            font-size: .38rem;
+            display: block;
+            margin-bottom: .2rem;
+          }
+          dd{
+            font-size: .72rem;
+            color: #fff;
+            display: block;
+          }
+        }
+        li:last-child{
+          position: absolute;
+          width: 2.3rem;
+          height: .5rem;
+          top: 1.7rem;
+          left: 4rem;
+          cursor: pointer;
+          span{
+            width: 100%;
+            height: 100%;
+            float: left;
+            background: url("../../img/toggleButton.png") center no-repeat;
+            background-size: .48rem .4rem;
+          }
+        }
+
+      }
+      .hide{
+        visibility:hidden;
+      }
+    }    
+  }
+  .mapBottom{
+    width: 31.5rem;
+    height: .84rem;
+    position: absolute;
+    bottom: 0rem;
+    left: 13rem;
+    ul{
+      width: 100%;
+      height:0.84rem;
+      li{
+        width: 3.15rem;
+        height: 0.84rem;
+        line-height: .84rem;
+        font-size: 0.48rem;
+        text-align: right;
+        display: block;
+        float: left;
+        background: url('../../img/bkxz.png') no-repeat;
+        background-size: 100% 100%;
+        padding-right: 0.4rem;
+        color: #ffffff;
+        input{
+          float: left;
+          // display: block;
+          opacity: 0;
+        }
+        .layui-form-checkbox{
+          margin-right: 1rem !important;
+        }
+        &:nth-child(1){
+          background: url('../../img/jinri.png') no-repeat;
+          background-size: 100% 100%;
+        }
+        &:nth-child(2),&:nth-child(3){
+          background: url('../../img/weixuanzhong.png') no-repeat;
+          background-size: 100% 100%;
+        }
+      }
+    }
+  }
+  #mapCenter .amap-marker-label{
+    border: 0px solid rgb(166, 166, 252) !important;
+    padding: 0px !important;
+    line-height: 0.01rem !important;
+    background-color: rgba(255, 255, 255, 0) !important;
+    font-size: 0.4rem !important;
+    left: 0.7rem !important;
+    top: 0.3rem !important;
+  }
+  #mapCenter .amap-icon img{
+    width: 0.6rem !important;
+    height: auto !important;
+  }
+}
+

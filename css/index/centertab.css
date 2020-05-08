@@ -1,0 +1,80 @@
+.swiper-container .swiper-wrapper .cont_all .main {
+  position: absolute;
+  top: 0rem;
+  right: .1rem;
+  z-index: 999999;
+}
+.swiper-container .swiper-wrapper .cont_all .main .main_ul_1 {
+  width: 2.8rem;
+  height: .8rem;
+  border: 0.01rem solid #0440ff;
+  display: flex;
+  box-sizing: border-box;
+}
+.swiper-container .swiper-wrapper .cont_all .main .main_ul_1 li {
+  width: auto;
+  height: .8rem;
+  line-height: .78rem;
+  font-size: .36rem;
+  float: left;
+  display: block;
+  flex: 1;
+  text-align: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: #fff;
+}
+.swiper-container .swiper-wrapper .cont_all .main .main_ul_1 li:not(:last-child) {
+  border-right: 0.01rem solid #0440ff;
+}
+.swiper-container .swiper-wrapper .cont_all .main .main_ul_1 .on {
+  background-image: linear-gradient(0deg, rgba(58, 98, 231, 0.68) 0%, #02185f 100%);
+}
+.swiper-container .swiper-wrapper .cont_all .main .main_ul_1 b {
+  width: auto;
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+  font-size: .7rem;
+  line-height: .4rem;
+  color: #fff;
+}
+.swiper-container .swiper-wrapper .content_div,
+.swiper-container .swiper-wrapper .content_div2,
+.swiper-container .swiper-wrapper .content_div3,
+.swiper-container .swiper-wrapper .content_div4 {
+  width: 95%;
+  height: 95%;
+  margin: 0 auto;
+  position: relative;
+}
+.swiper-container .swiper-wrapper .content_div .cont,
+.swiper-container .swiper-wrapper .content_div2 .cont,
+.swiper-container .swiper-wrapper .content_div3 .cont,
+.swiper-container .swiper-wrapper .content_div4 .cont {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.swiper-container .swiper-wrapper .content_div .cont > div,
+.swiper-container .swiper-wrapper .content_div2 .cont > div,
+.swiper-container .swiper-wrapper .content_div3 .cont > div,
+.swiper-container .swiper-wrapper .content_div4 .cont > div {
+  width: 100%;
+  height: 100%;
+}
+.swiper-container .swiper-wrapper .content_div5 {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+.swiper-container .swiper-wrapper .content_div5 .cont {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.swiper-container .swiper-wrapper .content_div5 .cont > div {
+  width: 100%;
+  height: 100%;
+}

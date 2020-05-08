@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- {include file="common/meta" /} -->
+    <meta charset="utf-8">
+    <!-- <title>{$title|default='智慧平安社区管理平台'}</title> -->
+    <title>智慧平安社区管理平台</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <meta name="renderer" content="webkit">
+
+    <!-- <link href="__CDN_CSS__/assets/css/frontend{$Think.config.app_debug?'':''}.css?v={$Think.config.site.version}" rel="stylesheet"> -->
+    <!-- @import url("../libs/swiper-4.5.0/css/swiper.min.css");
+    @import url("../libs/layui-v2.4.5/layui/css/layui.css");
+    @import url("../libs/layui-v2.4.5/layui/css/tablefilter.css");
+    @import url("index/index.css");
+    @import url("index/mapIndex.css");
+    @import url("index/centertab.css");
+    @import url("index/layerindex.css");
+    @import url("index/1366x768.css");
+    @import url("index/yourskin/style.css"); -->
+    <link rel="stylesheet" href="./libs/swiper-4.5.0/css/swiper.min.css">
+    <link rel="stylesheet" href="./libs/layui-v2.4.5/layui/css/layui.css">
+    <link rel="stylesheet" href="./libs/layui-v2.4.5/layui/css/tablefilter.css">
+    <link rel="stylesheet" href="./css/index/index.css">
+    <link rel="stylesheet" href="./css/index/centertab.css">
+    <link rel="stylesheet" href="./css/index/layerindex.css">
+    <link rel="stylesheet" href="./css/index/1366x768.css">
+    <link rel="stylesheet" href="./css/index/yourskin/style.css">
+    <link rel="stylesheet" href="./css/index/mapIndex.css">
+
+    <link rel="import" href="./view/common/layerTemplate.html" id="layerTemplate"/>
+    <!-- css 引入地址在/assets/css/frontend.css -->
+
+    
+    <!-- <script type="text/javascript">
+        var require = {
+            config: {$config|json_encode}
+        };
+    </script> -->
+</head>
+<body>
+<div class="containerDIV">
+<!-- {include file="common/commenHead" /} -->
+<header>
+    <div class="swiper-slide_Img">
+        <div class="header-left">
+            <span>区域切换</span>
+            <div class="nav">
+                <span class="region"></span>
+                <img src="./img/sanjiao1.png" alt="" class="nav_img">
+                <div class="nav_cont">
+                    <img src="./img/xiala_jiao.png" alt="">
+                    <ul class="cont_ul_1">
+                    </ul>
+                    <ul class="cont_ul_2">
+                    </ul>
+                    <ul class="cont_ul_3">
+                    </ul>
+                    <ul class="cont_ul_4">
+                    </ul>
+                </div>
+            </div>
+            <div class="AreaChange"></div>
+        </div>
+        <p class="title">智慧平安社区综合平台</p>
+        <div class="header-right">
+            <span class="logOut"><a id="logOut">退出</a></span>
+            <div class="time">
+                <span class="timeDate"></span><span class="timeNow"></span>
+            </div>
+            <img class="header_right_shezhi" src="./img/shez.png" alt="">
+            <img class="header_right_qiehuan" src="./img/qiehuan11.png" alt="">
+            <span class="imgbtn" id="imgbtn">以图搜图</span>
+        </div>
+    </div>
+</header>
+<main>
+    <div class="swiper-container swiperContent">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="indexLeft">
+                    <div class="peopleChange">
+                        <ul>
+                            <li>
+                                <dl>
+                                    <dd>今日新增人员</dd>
+                                    <dt class="todayStaff">0</dt>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl>
+                                    <dd>今日注销人员</dd>
+                                    <dt class="deleteStaff">0</dt>
+                                </dl>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="peopleIncrease">
+                        <div class="content_div cont_all">
+                            <div class="jian_click"><img src="./img/jiantou_1.png" alt=""></div>
+                            <div class="cont">
+                               <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ageTotal">
+                        <div class="content_div2 cont_all">
+                            <div class="jian_click"><img src="./img/jiantou_1.png" alt=""></div>
+                            <div class="cont">
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="indexMiddle">
+                    <div class="showBig">
+                        <div class="content_div5 cont_all">
+                            <div class="cont">
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showIcon">
+                        <ul class="iconBox">
+                            <li>
+                                <dl>
+                                    <dt>
+                                        <label for="">
+                                            <img src="./img/street.png" alt=""><span>街道</span>
+                                        </label>
+                                    </dt>
+                                    <dd>0</dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl>
+                                    <dt>
+                                        <label for="">
+                                            <img src="./img/community.png" alt="">
+                                            <span>社区</span>
+                                        </label>
+                                    </dt>
+                                    <dd>0</dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl>
+                                    <dt>
+                                        <label for="">
+                                            <img src="./img/village.png" alt="">
+                                            <span>小区</span>
+                                        </label>
+                                    </dt>
+                                    <dd>0</dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl>
+                                    <dt>
+                                        <label for="">
+                                            <img src="./img/building.png" alt="">
+                                            <span>楼栋</span>
+                                        </label>
+                                    </dt>
+                                    <dd>0</dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl>
+                                    <dt>
+                                        <label for="">
+                                            <img src="./img/house.png" alt="">
+                                            <span>房屋</span>
+                                        </label>
+                                    </dt>
+                                    <dd id="houseList" style="cursor:pointer">0</dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl>
+                                    <dt>
+                                        <label for="">
+                                            <img src="./img/people.png" alt="">
+                                            <span>人口</span>
+                                        </label>
+                                    </dt>
+                                    <dd id="peopleList" style="cursor:pointer">0</dd>
+                                </dl>
+                            </li>
+                            <li class="current">
+                                <dl>
+                                    <dt>
+                                        <label for="">
+                                            <img src="./img/device.png" alt="">
+                                            <span>设备</span>
+                                        </label>
+                                    </dt>
+                                    <dd>0</dd>
+                                </dl>
+                                <div class="current_div" style="display:none">
+                                    <ul>
+                                        <li>
+                                            <dl>
+                                                <dt><img src="./img/mj.png" alt=""></dt>
+                                                <dd>门禁</dd>
+                                                <dd class="current_num device_door"></dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <dl>
+                                                <dt><img src="./img/yg.png" alt=""></dt>
+                                                <dd>烟感</dd>
+                                                <dd class="current_num"></dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <dl>
+                                                <dt><img src="./img/jk.png" alt=""></dt>
+                                                <dd>监控</dd>
+                                                <dd class="current_num device_monitor"></dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <dl>
+                                                <dt><img src="./img/cj.png" alt=""></dt>
+                                                <dd>车禁</dd>
+                                                <dd class="current_num"></dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <dl>
+                                                <dt><img src="./img/wifi.png" alt=""></dt>
+                                                <dd>WIFI嗅探</dd>
+                                                <dd class="current_num"></dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <dl>
+                                                <dt><img src="./img/hw.png" alt=""></dt>
+                                                <dd>红外预警</dd>
+                                                <dd class="current_num"></dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <dl>
+                                                <dt><img src="./img/cdz.png" alt=""></dt>
+                                                <dd>充电桩</dd>
+                                                <dd class="current_num"></dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <dl>
+                                                <dt><img src="./img/tcp.png" alt=""></dt>
+                                                <dd>停车棚</dd>
+                                                <dd class="current_num"></dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <dl>
+                                                <dt><img src="./img/xfq.png" alt=""></dt>
+                                                <dd>消防器</dd>
+                                                <dd class="current_num"></dd>
+                                            </dl>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <dl>
+                                    <dt>
+                                        <label for="">
+                                            <img src="./img/unit.png" alt="">
+                                            <span>单位</span>
+                                        </label>
+                                    </dt>
+                                    <dd>22</dd>
+                                </dl>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="indexRight">
+                    <div class="peopleNum">
+                        <ul>
+                            <li>
+                                <dl>
+                                    <dd>重点人口</dd>
+                                    <dt class="emphasisPeople">0</dt>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl>
+                                    <dd>关注地区人口</dd>
+                                    <dt class="focusAreas">0</dt>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl>
+                                    <dd>疫情预警</dd>
+                                    <dt class="epidemic" style="font-size: .52rem;">查看</dt>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl>
+                                    <dd>黑名单人员</dd>
+                                    <dt class="blackPeople">0</dt>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl>
+                                    <dd>陌生人抓拍</dd>
+                                    <dt class="stranger">0</dt>
+                                </dl>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="sexTotal">
+                        <div class="content_div3 cont_all">
+                            <div class="jian_click"><img src="./img/jiantou_2.png" alt=""></div>
+                            <div class="cont">
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nationGroup">
+                        <div class="content_div4 cont_all">
+                            <div class="jian_click"><img src="./img/jiantou_2.png" alt=""></div>
+                            <div class="cont">
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide" id="mapContainer">
+                <div class="mapLeft">
+                    <div class="mapLeftDIV">
+                        <div class="mapLeft_switch">
+                            <ul>
+                                <li>平面</li>
+                                <li style="display: none">3D</li>
+                            </ul>
+                        </div>
+                        <div class="mapRight_switch">
+                            <ul class="mapRight_switch_ul" style="display: none;">
+                                <li id="community_name">小区名称</li>
+                                <li id="mapRight_switch_all">
+                                    <span class="mapRight_switch_text">全部</span>
+                                    <div class="mapRight_cont">
+                                        <ul class="mapRight_cont_ul">
+                                            <img src="./img/xiala_jiao.png" alt="">
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="peopleWarn">
+                            <div class="mapTitleBox">
+                                <p class="mapTitle">人员告警</p>
+                                <img src="./img/icon.png" alt="" id="peoplewarnInfo">
+                                <img src="./img/jiantou_2.png" alt="" id="peopleArrowRight" style="position: absolute;top: 3rem;right: 0.2rem;width: 0.4rem;transform: rotate(180deg);">
+                                <img src="./img/jiantou_2.png" alt="" id="peopleArrowLeft" style="position: absolute;top: 3rem;left: 0.2rem;width: 0.4rem;">
+                            </div>
+                            <ul class="warnList" style="white-space: nowrap;">
+                                <li class="warnListSpecial">
+                                    <dl>
+                                        <dt>
+                                            <img src="./img/special.png" alt="">
+                                            <p>特殊人群</p>
+                                        </dt>
+                                        <dd class="warnList_untreated"><span>0</span>未处理</dd>
+                                        <dd class="warnList_processed"><span>0</span>已处理</dd>
+                                    </dl>
+                                </li>
+                                <li class="warnListEmphasis">
+                                    <dl>
+                                        <dt>
+                                            <img src="./img/key.png" alt="">
+                                            <p>重点人员</p>
+                                        </dt>
+                                        <dd class="warnList_untreated"><span>0</span>未处理</dd>
+                                        <dd class="warnList_processed"><span>0</span>已处理</dd>
+                                    </dl>
+                                </li>
+                                <li class="warnListMarkedMan">
+                                    <dl>
+                                        <dt>
+                                            <img src="./img/sos.png" alt="">
+                                            <p>可疑人员出入</p>
+                                        </dt>
+                                        <dd class="warnList_untreated"><span>0</span>未处理</dd>
+                                        <dd class="warnList_processed"><span>0</span>已处理</dd>
+                                    </dl>
+                                </li>
+                                <li class="warnListBlack">
+                                    <dl>
+                                        <dt>
+                                            <img src="./img/black.png" alt="">
+                                            <p>黑名单</p>
+                                        </dt>
+                                        <dd class="warnList_untreated"><span>0</span>未处理</dd>
+                                        <dd class="warnList_processed"><span>0</span>已处理</dd>
+                                    </dl>
+                                </li>
+                                <li class="warnListSos">
+                                    <dl>
+                                        <dt>
+                                            <img src="./img/sos.png" alt="">
+                                            <p>SOS</p>
+                                        </dt>
+                                        <dd class="warnList_untreated"><span>0</span>未处理</dd>
+                                        <dd class="warnList_processed"><span>0</span>已处理</dd>
+                                    </dl>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="houseWarn">
+                            <div class="mapTitleBox">
+                                <p class="mapTitle">房屋告警</p>
+                                <img src="./img/icon.png" alt="" id="housewarnInfo">
+                            </div>
+                            <ul class="warnList">
+                                <li class="warnListAccommodation">
+                                    <dl>
+                                        <dt>
+                                            <img src="./img/houseGroup.png" alt="">
+                                            <p>疑似群租房</p>
+                                        </dt>
+                                        <dd class="warnList_untreated"><span>0</span>未处理</dd>
+                                        <dd class="warnList_processed"><span>0</span>已处理</dd>
+                                    </dl>
+                                </li>
+                                <li class="warnListVacant">
+                                    <dl>
+                                        <dt>
+                                            <!-- <img src="./img/houseEmpty.png" alt=""> -->
+                                            <img src="./img/houseWait2.png" alt="">
+                                            <p>敬请期待</p>
+                                        </dt>
+                                        <!-- <dd class="warnList_untreated"><span>0</span>未处理</dd>
+                                        <dd class="warnList_processed"><span>0</span>已处理</dd> -->
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>
+                                            <!-- <img src="./img/houseWait.png" alt=""> -->
+                                            <img src="./img/houseWait2.png" alt="">
+                                            <p>敬请期待</p>
+                                        </dt>
+                                        <!--<dd><span>0</span>未处理</dd>-->
+                                        <!--<dd><span>0</span>已处理</dd>-->
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>
+                                            <img src="./img/houseWait2.png" alt="">
+                                            <p>敬请期待</p>
+                                        </dt>
+                                        <!--<dd><span>0</span>未处理</dd>-->
+                                        <!--<dd><span>0</span>已处理</dd>-->
+                                    </dl>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="diviceWarn">
+                            <div class="mapTitleBox">
+                                <p class="mapTitle">设备/车辆告警</p>
+                                <img src="./img/icon.png" alt="" id="devicewarnInfo">
+                            </div>
+                            <ul class="warnList">
+                                <li class="warnListDoor">
+                                    <dl>
+                                        <dt>
+                                            <img src="./img/deviceDoor.png" alt="">
+                                            <p>门禁</p>
+                                        </dt>
+                                        <dd class="warnList_untreated"><span>0</span>未处理</dd>
+                                        <dd class="warnList_processed"><span>0</span>已处理</dd>
+                                    </dl>
+                                </li>
+                                <li class="warnListSmoke">
+                                    <dl>
+                                        <dt>
+                                            <img src="./img/deviceSmoke.png" alt="">
+                                            <p>烟感</p>
+                                        </dt>
+                                        <dd class="warnList_untreated"><span>0</span>未处理</dd>
+                                        <dd class="warnList_processed"><span>0</span>已处理</dd>
+                                    </dl>
+                                </li>
+                                <li class="warnListCar">
+                                    <dl>
+                                        <dt>
+                                            <img src="./img/deviceCar.png" alt="">
+                                            <p>车辆出入</p>
+                                        </dt>
+                                        <dd class="warnList_untreated"><span>0</span>未处理</dd>
+                                        <dd class="warnList_processed"><span>0</span>已处理</dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>
+                                            <img src="./img/deviceWatch.png" alt="">
+                                            <p>敬请期待</p>
+                                        </dt>
+                                        <!--<dd><span>0</span>未处理</dd>-->
+                                        <!--<dd><span>0</span>已处理</dd>-->
+                                    </dl>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="mapCenter" id="mapCenter"></div>
+                <div class="mapRight container">
+                    <div class="mapRightDIV">
+                        <div class="tab top">
+                            <div class="mapTitleBox">
+                                <p class="mapTitle">今日人员进出统计</p>
+                                <img src="./img/icon.png" alt="" id="mapTitlePeopleImg">
+                            </div>
+                            <ul class="personTotal">
+                                <li>
+                                    <dl>
+                                        <dt>进入人次</dt>
+                                        <dd>0</dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>外出人次</dt>
+                                        <dd>0</dd>
+                                    </dl>
+                                </li>
+                                <li class="toggleButton">
+                                    <span></span>
+                                </li>
+                            </ul>
+                            <ul class="person-list listUl">
+                                <!-- <li>
+                                    <img class="vator" src="./img/vator.png" alt="">
+                                    <div class="detailInfo">
+                                        <p><span class="name">王小明</span><span class="role">业主</span><span class="video">实时视频</span><span class="picImg">尾随抓拍</span></p>
+                                        <p><img src="./img/zuobiao.png"><span class="address">燕园街道艺水芳园1栋1单元</span><span class="time">2109-8-10  14:12:32</span></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img class="vator" src="./img/vator.png" alt="">
+                                    <div class="detailInfo">
+                                        <p><span class="name">王小明</span><span class="role">业主</span><span class="video">实时视频</span><span class="picImg">尾随抓拍</span></p>
+                                        <p><img src="./img/zuobiao.png"><span class="address">燕园街道艺水芳园1栋1单元</span><span class="time">2109-8-10  14:12:32</span></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img class="vator" src="./img/vator.png" alt="">
+                                    <div class="detailInfo">
+                                        <p><span class="name">王小明</span><span class="role">业主</span><span class="video">实时视频</span><span class="picImg">尾随抓拍</span></p>
+                                        <p><img src="./img/zuobiao.png"><span class="address">燕园街道艺水芳园1栋1单元</span><span class="time">2109-8-10  14:12:32</span></p>
+                                    </div>
+                                </li> -->
+                            </ul>
+                        </div>
+                        <div class="tab bottom">
+                            <div class="mapTitleBox">
+                                <p class="mapTitle">今日车辆进出统计</p>
+                                <img src="./img/icon.png" alt="" id="mapTitleCarImg">
+                            </div>
+                            <ul class="carTotal">
+                                <li>
+                                    <dl>
+                                        <dt>进入车次</dt>
+                                        <dd>0</dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>外出车次</dt>
+                                        <dd>0</dd>
+                                    </dl>
+                                </li>
+                                <li class="toggleButton">
+                                    <span></span>
+                                </li>
+                            </ul>
+                            <ul class="car-list listUl hide">
+                                <!-- <li>
+                                    <img class="vator" src="./img/vator.png" alt="">
+                                    <div class="detailInfo">
+                                        <p><span class="name">王小明</span><span class="role">业主</span><span class="video">实时视频</span><span class="picImg">尾随抓拍</span></p>
+                                        <p><img src="./img/zuobiao.png"><span class="address">燕园街道艺水芳园1栋1单元</span><span class="time">2109-8-10  14:12:32</span></p>
+                                    </div>
+                                </li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="mapBottom" style="display: none">
+                    <form class="layui-form" action="">
+                    <ul id="mapBottom_filter_ul">
+                        <li><input type="checkbox" name="all" value="0" lay-filter="checkboxMapbtm_all" checked class="checkboxAll">全部</li>
+                        <li><input type="checkbox" name="check[]" value="1" lay-filter="checkboxMapbtm" checked>门禁</li>
+                        <li><input type="checkbox" name="check[]" value="2" lay-filter="checkboxMapbtm" checked>监控</li>
+                        <li>烟感</li>
+                        <li>车禁</li>
+                        <li>WIFI嗅探</li>
+                        <li>红外预警</li>
+                        <li>充电桩</li>
+                        <li>停车棚</li>
+                        <li>消防器</li>
+                    </ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+</footer>
+
+</div>
+
+
+<div class="footer"></div>
+
+
+
+<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.12&key=2d93680f3ad77ff5fdcf879712d007c8"></script>
+<script src="./libs/echarts/dist/echarts.js" ></script>
+<script src="./libs/jquery/dist/jquery.min.js" ></script>
+<script src="./libs/swiper-4.5.0/js/swiper.min.js" ></script>
+<script src="./libs/echarts/map/js/china.js" ></script>
+<script src="./libs/layui-v2.4.5/layui/layui.js"></script>
+
+<script src="./js/frontend.js" ></script>
+<script src="./js/common.js" ></script>
+<script src="./js/frontend-init.js" ></script>
+<script src="./js/frontend/echart-table.js" ></script>
+<script src="./js/frontend/index.js" ></script>
+<script src="./js/frontend/layer-table.js" ></script>
+<script src="./js/frontend/map.js" ></script>
+<script src="./js/frontend/records.js" ></script>
+<!-- <script src="./js/frontend/tableFilter.js" ></script> -->
+<script src="./js/frontend/warn.js" ></script>
+
+<!-- 'lang': "empty:",
+'echarts': 'echarts.min',
+'echarts-theme': 'echarts-theme',
+'echarts-gl': 'echarts-gl.min',
+'echart-table': 'frontend/echart-table',
+'layer-table': 'frontend/layer-table',
+'map': 'frontend/map',
+'scroll': './scroll',
+
+// 以下的包从bower的libs目录加载
+'jquery': '../libs/jquery/dist/jquery.min',
+'layui': '../libs/layui-v2.4.5/layui/layui',
+'swiper': '../libs/swiper-4.5.0/js/swiper.min',
+'echart-map': '../libs/echarts/map/js/china' -->
+
+</body>
+</html>
+
+<script>
+    //防止JS错误窗口提示的方法,防止错误窗口弹出方法：
+    window.alert = function(){
+        return;
+    }
+
+    //在js中引入
+    $(document).ready(function () {
+        $('.footer').load('./view/common/layerTemplate.html');
+    });
+    console.log(window.Config);
+
+    console.log(sessionStorage);
+    
+
+    $("#logOut").on("click",function(){
+        window.Config = {};
+        sessionStorage.clear();
+
+        window.location.href='index.html';
+        console.log(window.Config);
+        console.log(sessionStorage);
+    })
+</script>
