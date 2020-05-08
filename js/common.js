@@ -24,7 +24,7 @@
       //改变区域轮廓
       changeRelateRegion: function (data) {
         // console.log(data) //type:1 为小区  type：0 不是小区
-        // console.log("ssss:" + sessionStorage.getItem('abc'));
+        // console.log("ssss:" + sessionStorage.getItem('abc')); 
         level = window.region.level;
         if(data.type == '1'){
           // console.log("----------------request   小区----------------")
