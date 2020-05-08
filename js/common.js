@@ -37,7 +37,7 @@
             type:data.type
           };
         }else if(data.type == '0'){
-          // console.log("----------------request   不是小区----------------")
+          // console.log("--------11--------request   不是小区----------------")
           var request = {
             zone_code: data.zone_code,
             name: data.name,
