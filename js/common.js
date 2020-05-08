@@ -77,7 +77,7 @@
         }
       },
       /**
-       * 首次加载五个echart
+       * 首次加载五个echart//
       */
       onloadEcharts: function (data) {
         console.log("this is onloadEcharts");
