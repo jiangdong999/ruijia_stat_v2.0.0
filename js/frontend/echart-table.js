@@ -3241,7 +3241,7 @@
           title: {
             text: "婚姻状况",
             show: true,
-            // left: 20,
+            // left: 20 ,
             textStyle: {
               fontWeight: '200',
               color: '#f5f4f4',
