@@ -3258,13 +3258,13 @@
             trigger: 'axis',
             textStyle: {
               fontFamily: 'CNLight',
-              fontSize: Controller.getDpr() * 1.1,
+              fontSize: EchartTable.getDpr() * 1.1,
             },
             axisPointer: {
               type: 'shadow',
               label: {
                 backgroundColor: '#6a7985',
-                fontSize: Controller.getDpr(),
+                fontSize: EchartTable.getDpr(),
               }
             }
           },
@@ -4775,7 +4775,7 @@
                         ]
                       ],
                       done: function (res) {
-                        Controller.api.layuiTitle()//layui表格title提示
+                        EchartTable.api.layuiTitle()//layui表格title提示
                       }
                     });
                     Frontend.api.Ajax('/Webapi/selectInfo', null, function (msg) {
