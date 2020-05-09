@@ -3254,6 +3254,20 @@
               textShadowOffsetY: EchartTable.getDpr() * 0.2,
             },
           },
+          tooltip: {
+            trigger: 'axis',
+            textStyle: {
+              fontFamily: 'CNLight',
+              fontSize: Controller.getDpr() * 1.1,
+            },
+            axisPointer: {
+              type: 'shadow',
+              label: {
+                backgroundColor: '#6a7985',
+                fontSize: Controller.getDpr(),
+              }
+            }
+          },
           grid: {
             top: '25%', //距上边距
             bottom: '10%', //距下边距
@@ -4553,20 +4567,6 @@
             top: '25%', //距上边距
             bottom: '10%' //距下边距
           },
-          tooltip: {
-            trigger: 'axis',
-            textStyle: {
-              fontFamily: 'CNLight',
-              fontSize: EchartTable.getDpr() * 1.1,
-            },
-            axisPointer: {
-              type: 'shadow',
-              label: {
-                backgroundColor: '#6a7985',
-                fontSize: EchartTable.getDpr(),
-              }
-            }
-          },
           legend: {
             // data: ['常住', '流动'],
             // align: 'right',
@@ -4583,6 +4583,7 @@
           },
           xAxis: [{
             name: '日期',
+            triggerEvent: true,//开启点击事件
             nameGap: EchartTable.getDpr(),
             nameTextStyle: {
               fontSize: EchartTable.getDpr(),
@@ -4687,6 +4688,139 @@
           }]
         };
         rentGroupInfo.setOption(option)
+        //echart 列表
+        var isclick = true;//防止点击过快
+        rentGroupInfo.on("click", function (params) {
+          
+          if (isclick) {
+            isclick = false;
+            //下面添加需要执行的事件
+            var houseStatis;
+            if (params.componentType == "series") {
+              houseStatis = params.name;
+            } else if (params.componentType == "xAxis") {
+              houseStatis = params.value;
+            }
+            layui.use(['layer', 'table', 'tableFilter'], function () {
+              var layer = layui.layer;//弹层
+              var table = layui.table; //表格
+              var tableFilter = layui.tableFilter;//过滤器
+              layer.open({
+                type: 1,
+                title: false,
+                closeBtn: 1,
+                shadeClose: true,
+                shade: 0.8,
+                skin: 'peopleNumclass', //皮肤
+                area: ['36rem', '16.5rem'],
+                zIndex: 2000000,
+                content: $('#houseProportion_layer'),
+                success: function () {
+                  $(".houseProportion_layer_left").hide();
+                  $(".houseProportion_layer_title").html("群租房统计")
+                  var houseProportion_layer_right_input;
+                  //初始化搜索
+                  $(".houseProportion_layer_right input").val("");
+                  houseProportionList(houseStatis, houseProportion_layer_right_input);
+                  function houseProportionList(houseStatis, houseProportion_layer_right_input) {
+                    let dataNew = {
+                      'pageSize': '10',//每页显示的数量
+                      'timeInfo': houseStatis,//类型
+                      'keyword': houseProportion_layer_right_input//搜索框
+                    }
+                    let params = Frontend.api.getPostParams(dataNew);
+                    table.render({
+                      elem: '#houseProportion_table',
+                      // height: 1050,
+                      // width: 3500,
+                      url: window.publicUrl+'/Webapi/rentGroupInfoList', //数据接口
+                      where: params,
+                      method:'post',
+                      response: {
+                        statusName: 'code', //规定数据状态的字段名称，默认：code
+                        statusCode: 200, //规定成功的状态码，默认：0
+                        msgName: 'msg', //规定状态信息的字段名称，默认：msg
+                        countName: 'count', //规定数据总数的字段名称，默认：count
+                        dataName: 'data' //规定数据列表的字段名称，默认：data
+                      },
+                      parseData: function (res) { //res 即为原始返回的数据
+                        return {
+                          "code": res.code, //解析接口状态
+                          "msg": res.message, //解析提示文本
+                          "count": res.count, //解析数据长度
+                          "data": res.data //解析数据列表
+                        };
+                      },
+                      page: true, //开启分页
+                      limit: 10,
+                      cols: [
+                        [ //表头
+                          {
+                            field: 'idIndex', title: '编号', width: '5%', align: 'center', templet: function (e) {
+                              let idIndex = e.LAY_INDEX;
+                              return idIndex;
+                            }
+                          },
+                          // { field: 'room_use_status', width: '8%', title: '房屋类型' },
+                          { field: 'address_town', width: '18%', title: '街道' },
+                          { field: 'address_village', width: '14%', title: '社区' },
+                          { field: 'community_name', width: '10%', title: '小区' },
+                          {
+                            field: 'addressinfo', width: '12%', title: '房屋住址', templet: function (e) {
+                              let addressinfo = e.building_name + e.unit_name + e.room_name;
+                              return addressinfo;
+                            }
+                          },
+                          { field: '', width: '8%', title: '操作', toolbar: '#houseProportion_table_Demo' },
+                        ]
+                      ],
+                      done: function (res) {
+                        Controller.api.layuiTitle()//layui表格title提示
+                      }
+                    });
+                    Frontend.api.Ajax('/Webapi/selectInfo', null, function (msg) {
+                      var apitableFilterIns = tableFilter.render({
+                        elem: '#houseProportion_table',
+                        mode: 'api',
+                        filters: [
+                          // { field: 'room_use_status', name: 'roomInfo', type: 'checkbox', data: msg.data.room_use_status },
+                          { field: 'address_town', name: 'addressTown', type: 'checkbox', data: msg.data.address_town },
+                          { field: 'address_village', name: 'addressVillage', type: 'checkbox', data: msg.data.address_village },
+                          { field: 'community_name', name: 'communityName', type: 'checkbox', data: msg.data.community_name },
+                        ],
+                        done: function (filters) {
+                          // console.log(filters)
+                          houseProportion_layer_right_input = $(".houseProportion_layer_right input").val();
+                          table.reload('houseProportion_table', {
+                            where: { //设定异步数据接口的额外参数，任意设
+                              keyword: houseProportion_layer_right_input,
+                            },
+                            page: 1
+                          })
+
+                          apitableFilterIns.reload()
+                          return false;
+                        }
+                      });
+                    });
+                  }
+                  $("#houseProportion_layer_right_btn").unbind("click").on("click", function () {
+                    houseProportion_layer_right_input = $(".houseProportion_layer_right input").val();
+                    houseProportionList(houseStatis, houseProportion_layer_right_input);
+                  })
+                },
+                end: function () {
+                  $('.houseProportion_layer_left').show();
+                  $(".houseProportion_layer_title").html("房屋占比统计")
+                }
+              })
+            })
+            //定时器
+            setTimeout(function () {
+              isclick = true;
+            }, 800);
+          }
+        })
       },
       //房屋用途
       houseUsage: function () {
