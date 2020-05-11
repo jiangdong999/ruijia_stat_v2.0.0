@@ -10,40 +10,14 @@
    
     <link rel="stylesheet" href="./libs/swiper-4.5.0/css/swiper.min.css">
     <link rel="stylesheet" href="./libs/layui-v2.4.5/layui/css/layui.css">
+    <link rel="stylesheet" href="./libs/layui-v2.4.5/layui/css/modules/layer/default/layer.css">
     <link rel="stylesheet" href="./libs/layui-v2.4.5/layui/css/tablefilter.css">
     <link rel="stylesheet" href="./css/index/index.css">
     <link rel="stylesheet" href="./css/index/centertab.css">
     <link rel="stylesheet" href="./css/index/layerindex.css">
-    <link rel="stylesheet" href="./css/index/1366x768.css">
     <link rel="stylesheet" href="./css/index/yourskin/style.css">
+    <link rel="stylesheet" href="./css/index/1366x768.css">
 </head>
-
-<body>
-    <form class="loginBox" action="" method="post" id="login-form" autocomplete="new-password">
-    <div class="container">
-        <div class="container_logo">
-            <img src="../../img/logo1.png" alt="">
-        </div>
-        <div class="container_title">智慧平安社区综合平台</div>
-        <div class="container_cont">
-            <p><input type="text" id="container_cont_phone" value="" placeholder="输入手机号" name="mobile" maxlength="11"><input type="button" id="yanzheng" value="免费获取验证码"/></p>
-            <p><input type="text" class="container_cont_yzm" placeholder="输入短信验证码" maxlength="6" name="code" autocomplete="off"></p>
-            <p><input id="submit" type="button" value="登录"></p>
-        </div>
-        <div class="loginBox_banquan">版本号 v2.0.2</div>
-    </div>
-    </form>
-
-    <script src="./libs/echarts/dist/echarts.js" ></script>
-    <script src="./libs/jquery/dist/jquery.min.js" ></script>
-    <script src="./libs/swiper-4.5.0/js/swiper.min.js" ></script>
-    <script src="./libs/echarts/map/js/china.js" ></script>
-    <script src="./libs/layui-v2.4.5/layui/layui.js"></script>
-
-    <script src="./js/frontend.js" ></script>
-</body>
-
-</html>
 
 <style>
     html,
@@ -175,21 +149,102 @@
      -webkit-text-fill-color: #fff!important;
     }   
 </style>
+<body>
+    <form class="loginBox" action="" method="post" id="login-form" autocomplete="new-password">
+    <div class="container">
+        <div class="container_logo">
+            <img src="../../img/logo1.png" alt="">
+        </div>
+        <div class="container_title">智慧平安社区综合平台</div>
+        <div class="container_cont">
+            <p><input type="text" id="container_cont_phone"  placeholder="输入手机号" name="mobile" maxlength="11"><input type="button" id="yanzheng" value="免费获取验证码"/></p>
+            <p><input type="text" class="container_cont_yzm" placeholder="输入短信验证码" maxlength="6" name="code" autocomplete="off"></p>
+            <p><input id="submit" type="button" value="登录"></p>
+        </div>
+        <div class="loginBox_banquan">版本号 v2.0.2</div>
+    </div>
+    </form>
+
+    <script src="./libs/echarts/dist/echarts.js" ></script>
+    <script src="./libs/jquery/dist/jquery.min.js" ></script>
+    <script src="./libs/swiper-4.5.0/js/swiper.min.js" ></script>
+    <script src="./libs/echarts/map/js/china.js" ></script>
+    <script src="./libs/layui-v2.4.5/layui/layui.js"></script>
+    <script src="./libs/layui-v2.4.5/layui/lay/modules/layer.js"></script>
+
+    <script src="./js/frontend.js" ></script>
+</body>
+
+</html>
+
 
 <script>
 window.Config = {};
 sessionStorage.clear();
+localStorage.clear();
 
 $("#submit").on("click",function(){
     
-    sessionStorage.setItem("isRefreshCommunityList", "0");
-    sessionStorage.setItem("level", "0");
-    sessionStorage.setItem("name", "jiangdongcs");
-    sessionStorage.setItem("community_id", "0");
-    sessionStorage.setItem("zone_code", "000000000000");
+    var phoneval = $("#container_cont_phone").val();
+    var yzmval = $(".container_cont_yzm").val();
 
-    window.location.href="home.html";
-    
+    var obj ={
+        'mobile':phoneval,
+        'code':yzmval
+    }
+    $.ajax({
+        url:window.publicUrl+'/Login/login',
+        type:'post',
+        data:obj,
+        success:function(res){
+            if (res.code == '1') {
+                layer.msg('登陆成功')
+                // console.log(res.data);
+                
+                // sessionStorage.setItem("isRefreshCommunityList", "0");
+                // sessionStorage.setItem("level", res.data.levelid);
+                // sessionStorage.setItem("name", res.data.username);
+                // sessionStorage.setItem("community_id", res.data.community_ids_cache);
+                // sessionStorage.setItem("zone_code", res.data.zone_code);
+
+                localStorage.setItem("isRefreshCommunityList", "0");
+                localStorage.setItem("name", res.data.username);
+                localStorage.setItem("community_id", '0');
+                localStorage.setItem("zone_code", res.data.zone_code);
+
+
+                localStorage.setItem("login", res.data.id);
+                localStorage.setItem("username", res.data.username);
+                localStorage.setItem("usercode", res.data.zone_code);
+                localStorage.setItem("userlevel", res.data.userlevel);
+                localStorage.setItem("wsUri", res.data.wsUri);
+                localStorage.setItem("key", res.data.token_big);
+                localStorage.setItem("admin", res.data.admin_id);
+                localStorage.setItem("referer", null);
+
+
+                // window.Config = {
+                //     login: res.data.id,
+                //     username: res.data.username,
+                //     usercode: res.data.zone_code,
+                //     userlevel: res.data.levelid,
+                //     wsUri: "ws://ws.znaf2.corelines.cn:80/424/1588845063/6d11b3439c61c93a2db38b0b76437e6c/3/",
+                //     key: res.data.token_big,
+                //     admin: res.data.admin_id,
+                //     referer: null
+                // }
+
+
+                window.location.href="home.html";
+                // console.log( window.Config);
+                
+            }else{
+                layer.msg(res.message)
+            }
+           
+        }
+
+    })   
 })
 
 </script>

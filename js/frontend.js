@@ -5,13 +5,12 @@
             getPostParams: function (data) {
                 //获取全局参数
                 return $.extend({
-                    // userid: window.Config.login,
-                    // key: window.Config.key,
-                    // from: '1',
-                    // zone_code: sessionStorage.getItem('zone_code'),
-                    // community_id: sessionStorage.getItem('community_id'),
-                    // // level: sessionStorage.getItem('level'),
-                    // adminid: window.Config.admin
+                    userid: window.Config.login,
+                    key: window.Config.key,
+                    from: '1',
+                    zone_code: sessionStorage.getItem('zone_code'),
+                    community_id: sessionStorage.getItem('community_id'),
+                    adminid: window.Config.admin
 
                     // userid:'375',
                     // key:'ad93f626-7c4a-4920-8ac4-0802ac41604a',
@@ -22,12 +21,15 @@
                     // // adminid:'0'，
                     // adminid:'381'
 
-                    userid: "424",
-                    key: "479d7b0b-b5e6-4158-9e94-7487a59b5bdf",
-                    from: "1",
-                    zone_code: sessionStorage.getItem('zone_code'),
-                    community_id: sessionStorage.getItem('community_id'),
-                    adminid: "424",
+                    // userid: "424",
+                    // key: "479d7b0b-b5e6-4158-9e94-7487a59b5bdf",
+                    // from: "1",
+                    // zone_code: sessionStorage.getItem('zone_code'),
+                    // community_id: sessionStorage.getItem('community_id'),
+                    // adminid: "424",
+
+
+                    
                 }, data);
             },
             Ajax: function (url, data, callback) {
@@ -108,11 +110,15 @@
               } else {
                 var mobile = $("#container_cont_phone").val();
                 $.ajax({
-                  url: window.publicUrl+"/index/mobileSend?mobile=" + mobile,
+                  url: window.publicUrl+"/index/mobileSend",
+                  type:'get',
+                  data:{
+                    'mobile': mobile
+                  },
                   success: function (su) {
                     if (su) {
                       //不让倒计时
-                      alert(su);
+                      layer.msg(su);
                       return false;
                     } else {
                       thisBtn = $(this);
@@ -144,10 +150,7 @@
                 settime(obj)
               }, 1000)
             }
-      
-      
-      
-      
+
             sessionStorage.clear();
             var lastlogin = sessionStorage.getItem("lastlogin");
             if (lastlogin) {
@@ -157,30 +160,55 @@
         },
         init: function () {
             Frontend.login();
+
+              var login = localStorage.getItem("login");
+              var username = localStorage.getItem("username");
+              var usercode = localStorage.getItem("usercode");
+              var userlevel = localStorage.getItem("userlevel");
+              var wsUri = localStorage.getItem("wsUri");
+              var key = localStorage.getItem("key");
+              var admin = localStorage.getItem("admin");
+              var referer = localStorage.getItem("referer");
+
+
+              var isRefreshCommunityList = localStorage.getItem("isRefreshCommunityList");
+
+              var username = localStorage.getItem("name");
+              var community_ids_cache = localStorage.getItem("community_id");
+              var zone_code = localStorage.getItem("zone_code");
+
+
+
+
+              sessionStorage.setItem("isRefreshCommunityList",isRefreshCommunityList);
+
+              sessionStorage.setItem("name", username);
+              sessionStorage.setItem("community_id", community_ids_cache);
+              sessionStorage.setItem("zone_code",zone_code);
+
             
             window.Config = {
-                // site:{
-                //     name: "REJIA",
-                //     cdnurl: "",
-                //     version: "1.0.1",
-                //     timezone: "Asia/Shanghai",
-                // },
-                // modulename: "width",
-                // controllername: "index",
-                // actionname: "index",
-                // jsname: "frontend/index",
-                // moduleurl: "",
-                // language: "zh-cn",
-                login: "424",
-                username: "jiangdongcs",
-                usercode: "000000000000",
-                userlevel: 4,
-                wsUri: "ws://ws.znaf2.corelines.cn:80/424/1588845063/6d11b3439c61c93a2db38b0b76437e6c/3/",
-                key: "479d7b0b-b5e6-4158-9e94-7487a59b5bdf",
-                admin: "424",
-                referer: null
+                'login': login,
+                'username': username,
+                'usercode': usercode,
+                'userlevel': userlevel,
+                'wsUri': wsUri,
+                'key': key,
+                'admin': admin,
+                'referer': referer
             }
+            // window.Config = {
+            //   login: "424",
+            //   username: "jiangdongcs",
+            //   usercode: "000000000000",
+            //   userlevel: 4,
+            //   wsUri: "ws://ws.znaf2.corelines.cn:80/424/1588845063/6d11b3439c61c93a2db38b0b76437e6c/3/",
+            //   key: "479d7b0b-b5e6-4158-9e94-7487a59b5bdf",
+            //   admin: "424",
+            //   referer: null
+            // }
 
+            
 
             
             var wW = document.body.clientWidth;// 浏览器所有内容宽度

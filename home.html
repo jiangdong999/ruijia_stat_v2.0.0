@@ -63,7 +63,7 @@
         </div>
         <p class="title">智慧平安社区综合平台</p>
         <div class="header-right">
-            <span class="logOut"><a id="logOut">退出</a></span>
+            <span class="logOut"><a id="logOut" style="cursor: pointer;">退出</a></span>
             <div class="time">
                 <span class="timeDate"></span><span class="timeNow"></span>
             </div>
@@ -647,6 +647,7 @@
 <script src="./js/frontend/records.js" ></script>
 <!-- <script src="./js/frontend/tableFilter.js" ></script> -->
 <script src="./js/frontend/warn.js" ></script>
+<script src="./js/scroll.js"></script>
 
 <!-- 'lang': "empty:",
 'echarts': 'echarts.min',
@@ -671,22 +672,14 @@
     window.alert = function(){
         return;
     }
-
     //在js中引入
     $(document).ready(function () {
         $('.footer').load('./view/common/layerTemplate.html');
     });
-    console.log(window.Config);
-
-    console.log(sessionStorage);
-    
-
     $("#logOut").on("click",function(){
         window.Config = {};
         sessionStorage.clear();
-
+        localStorage.clear();
         window.location.href='index.html';
-        console.log(window.Config);
-        console.log(sessionStorage);
     })
 </script>
