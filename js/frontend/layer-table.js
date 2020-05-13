@@ -8367,7 +8367,7 @@
                                                 params.page = pageNumber;
                                                 // params.pageSize = pageNumber * 15;
                                                 $.post({
-                                                    url: '/Webapi/openDoorDetail',
+                                                    url: window.publicUrl+'/Webapi/openDoorDetail',
                                                     data: params,
                                                     success: function (data) {
                                                         var resobj = JSON.parse(data);
@@ -8403,7 +8403,7 @@
                                                 scrollTop = sh - h;
                                                 params.page = '1'
                                                 $.post({
-                                                    url: '/Webapi/openDoorDetail',
+                                                    url: window.publicUrl+'/Webapi/openDoorDetail',
                                                     data: params,
                                                     success: function (res) {
                                                         var res = JSON.parse(res);
@@ -8616,7 +8616,7 @@
                                                 params.page = pageNumber;
                                                 
                                                 $.post({
-                                                    url: '/Webapi/openCaraDetail',
+                                                    url: window.publicUrl+'/Webapi/openCaraDetail',
                                                     data: params,
                                                     success: function (res) {
                                                         var res = JSON.parse(res);
@@ -8646,7 +8646,7 @@
                                                 scrollTop = sh - h;
                                                 params.page = '1'
                                                 $.post({
-                                                    url: '/Webapi/openCaraDetail',
+                                                    url: window.publicUrl+'/Webapi/openCaraDetail',
                                                     data: params,
                                                     success: function (res) {
                                                         var res = JSON.parse(res);
