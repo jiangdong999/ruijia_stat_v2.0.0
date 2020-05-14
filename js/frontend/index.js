@@ -37,6 +37,8 @@
             Index.api.loadMapLayer(data);//地图
             Index.api.mapIndex();//告警数量
             Index.api.onloadCarperson();//地图页人员车辆切换
+            Index.api.echartIdSave();//保存首页echart的顺序 和 选项
+
           }else{
             layer.msg('网络不佳,请您重新加载页面...');
           }
@@ -574,6 +576,40 @@
           },
         });
         window.swiper = mySwiper;
+      },
+
+      echartIdSave:function(){
+        var cont_id = $(".content_div .cont>div").attr('id');
+        var cont_val = $(".content_div .cont").attr('value');
+
+        var cont_id2 = $(".content_div2 .cont>div").attr('id');
+        var cont_val2 = $(".content_div2 .cont").attr('value');
+
+        var cont_id3 = $(".content_div3 .cont>div").attr('id');
+        var cont_val3 = $(".content_div3 .cont").attr('value');
+
+        var cont_id4 = $(".content_div4 .cont>div").attr('id');
+        var cont_val4 = $(".content_div4 .cont").attr('value');
+
+        var cont_id5 = $(".content_div5 .cont>div").attr('id');
+        var cont_val5 = $(".content_div5 .cont").attr('value');
+
+        var obj = {};
+        obj[cont_id] = cont_val
+        obj[cont_id2] = cont_val2
+        obj[cont_id3] = cont_val3
+        obj[cont_id4] = cont_val4
+        obj[cont_id5] = cont_val5
+
+        let field = JSON.stringify(obj);
+        let dataField = {
+            'homePage': field
+        }
+        Frontend.api.Ajax('/Webapi/userHomeSave', dataField, function (msg) {
+          var setData = msg.data;
+          //提交
+          LayerTable.api.setSubmit(setData);
+        })
       }
     }
   };
