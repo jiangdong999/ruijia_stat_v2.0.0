@@ -192,59 +192,50 @@ $("#submit").on("click",function(){
         'mobile':phoneval,
         'code':yzmval
     }
-    $.ajax({
-        url:window.publicUrl+'/Login/login',
-        type:'post',
-        data:obj,
-        success:function(res){
-            if (res.code == '1') {
-                layer.msg('登陆成功')
-                // console.log(res.data);
-                
-                // sessionStorage.setItem("isRefreshCommunityList", "0");
-                // sessionStorage.setItem("level", res.data.levelid);
-                // sessionStorage.setItem("name", res.data.username);
-                // sessionStorage.setItem("community_id", res.data.community_ids_cache);
-                // sessionStorage.setItem("zone_code", res.data.zone_code);
 
-                localStorage.setItem("isRefreshCommunityList", "0");
-                localStorage.setItem("name", res.data.username);
-                localStorage.setItem("community_id", '0');
-                localStorage.setItem("zone_code", res.data.zone_code);
+    new Promise((resolve, reject) => {
+        $.ajax({
+            method: 'post',
+            dataType: "JSON",
+            url: window.publicUrl+'/Login/login',
+            data: obj || "",
+            success: res => {
+                console.log(res);
+                if (res.code == 1) {
+                    resolve(res.data);
+
+                    localStorage.setItem("isRefreshCommunityList", "0");
+                    localStorage.setItem("name", res.data.username);
+                    localStorage.setItem("community_id", '0');
+                    localStorage.setItem("zone_code", res.data.zone_code);
 
 
-                localStorage.setItem("login", res.data.id);
-                localStorage.setItem("username", res.data.username);
-                localStorage.setItem("usercode", res.data.zone_code);
-                localStorage.setItem("userlevel", res.data.userlevel);
-                localStorage.setItem("wsUri", res.data.wsUri);
-                localStorage.setItem("key", res.data.token_big);
-                localStorage.setItem("admin", res.data.admin_id);
-                localStorage.setItem("referer", null);
+                    localStorage.setItem("login", res.data.id);
+                    localStorage.setItem("username", res.data.username);
+                    localStorage.setItem("usercode", res.data.zone_code);
+                    localStorage.setItem("userlevel", res.data.userlevel);
+                    localStorage.setItem("wsUri", res.data.wsUri);
+                    localStorage.setItem("key", res.data.token_big);
+                    localStorage.setItem("admin", res.data.admin_id);
+                    localStorage.setItem("referer", null);
 
-
-                // window.Config = {
-                //     login: res.data.id,
-                //     username: res.data.username,
-                //     usercode: res.data.zone_code,
-                //     userlevel: res.data.levelid,
-                //     wsUri: "ws://ws.znaf2.corelines.cn:80/424/1588845063/6d11b3439c61c93a2db38b0b76437e6c/3/",
-                //     key: res.data.token_big,
-                //     admin: res.data.admin_id,
-                //     referer: null
-                // }
-
-
-                window.location.href="home.html";
-                // console.log( window.Config);
-                
-            }else{
-                layer.msg(res.message)
+                    window.location.href="home.html";
+                    return false;
+                }
+                else if (res.code == 202 || res.code == 203 || res.code == 208) {
+                    layer.msg(res.message)
+                }
+            },
+            error: err => {
+                if (err.status == 404) {
+                    layer.msg(res.message)
+                } else {
+                    reject(err);
+                }
             }
-           
-        }
+        })
+    })
 
-    })   
 })
 
 </script>

@@ -4418,7 +4418,7 @@
                         isclick = false;
                         //下面添加需要执行的事件
                         var warnType;
-                        warnType = '14';//车辆出入
+                        warnType = '14,16';//车辆出入
                         LayerTable.api.devicewarnInfoCommon(layerData, warnType)
                         //定时器
                         setTimeout(function () {
@@ -4432,7 +4432,7 @@
                         //下面添加需要执行的事件
                         var warnType;
                         var isAct;
-                        warnType = '14';//车辆出入
+                        warnType = '14,16';//车辆出入
                         isAct = '0';//0：未处理；1处理中；2已处理
                         LayerTable.api.devicewarnInfoCommon(layerData, warnType, isAct)
                         //定时器
@@ -4447,7 +4447,7 @@
                         //下面添加需要执行的事件
                         var warnType;
                         var isAct;
-                        warnType = '14';//车辆出入
+                        warnType = '14,16';//车辆出入
                         isAct = '2';//0：未处理；1处理中；2已处理
                         LayerTable.api.devicewarnInfoCommon(layerData, warnType, isAct)
                         
@@ -4473,7 +4473,7 @@
                     content: $('#device_layer'),
                     success: function () {
 
-                        if(warnType == '14'){
+                        if(warnType == '14,16'){
                             $(".device_layer_title").html('车辆出入告警')
                         }else{
                             $(".device_layer_title").html('设备告警列表')
@@ -4578,7 +4578,9 @@
                                                 } else if (data.warn_type == '11') {
                                                     return data.warn_type_device = '黑名单';
                                                 } else if (data.warn_type == '14') {
-                                                    return data.warn_type_device = '车辆出入告警';
+                                                    return data.warn_type_device = '重点车辆出入告警';
+                                                } else if (data.warn_type == '16') {
+                                                    return data.warn_type_device = '可疑车辆告警';
                                                 }
                                             }
                                         },
@@ -4590,7 +4592,7 @@
                                                     return '<span style="color: #00ffff !important;cursor:pointer;">' + data.device_no + '</span>'
                                                 } else if (data.warn_type == "8") {//8烟感
                                                     return '<span>' + data.device_no + '</span>'
-                                                } else if (data.warn_type == "14") {//14车辆
+                                                } else if (data.warn_type == "14" || data.warn_type == "16") {//14车辆
                                                     return '<span>' + data.device_no + '</span>'
                                                 }
 
@@ -4682,7 +4684,7 @@
                             if (obj.event === 'device_table_lock') {
                                 if (device_table.warn_type == '6' || device_table.warn_type == '8') {//==>6设备告警：门禁常开告警  8 烟感告警
                                     LayerTable.api.deviceSmoke(layerData, device_table);
-                                }else if(device_table.warn_type == '14'){//14车辆
+                                }else if(device_table.warn_type == '14' || device_table.warn_type == '16'){//14车辆 16疑似车辆
                                     device_table.carNo = device_table.device_no
                                     LayerTable.api.onecarOnefiles(layerData,device_table)
                                 }
@@ -4695,7 +4697,7 @@
                             
                         });
 
-                        if(warnType == '14'){
+                        if(warnType == '14,16'){
                             $("#device_layer .device_layer_right input").attr('placeholder','输入车牌号')
                             $(".device_layer_table .layui-table-header table thead th[data-field='device_no'] span").html('车牌号');
                         }else{

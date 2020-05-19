@@ -1,5 +1,6 @@
 // define([], function () {
     window.publicUrl = 'https://znaf2.corelines.cn';
+    // window.publicUrl = 'http://120.92.213.72:8083'
     var Frontend = {
         api: {
             getPostParams: function (data) {
@@ -62,12 +63,12 @@
                                 callback(resp);
                                 resolve(resp.message);
                             } else if (resp.code == 202) {
-                                window.location.href = '/index/login';
+                                window.location.href = '/';
                                 return false;
                             } else if (resp.code == 208) {
                                 layer.msg(resp.message);
                                 setTimeout(function () {
-                                    window.location.href = '/index/login';
+                                    window.location.href = '/';
                                 }, 3000)
                                 return false;
                             } else {

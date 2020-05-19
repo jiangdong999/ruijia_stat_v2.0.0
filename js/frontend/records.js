@@ -147,13 +147,19 @@
         //处理通行记录
         if (typeof data !== 'undefined') {
             var shipinHTML = '';
+            var role = '';
             if(data.video_url_name != ''){
                 shipinHTML = '<span class="video" video="' + data.video_url_name + '" name="' + data.operator_name + '" time="' + data.apply_time + '" address="' + data.door_name + '" open_type="' + data.open_type + '">实时视频</span>';
+            }
+            if(data.household_type === undefined || data.household_type == ''){
+              role = '';
+            }else{
+              role = '<span class="role">' + data.household_type + '</span>';
             }
             var liHtml = '<li>\n' +
             '<img class="vator" householdCode="' + data.household_code + '" householdId="' + data.household_id + '"  src="' + data.images_url_name + '" alt="">\n' +
             '  <div class="detailInfo">\n' +
-            '    <p><span class="name" householdCode="' + data.household_code + '" householdId="' + data.household_id + '" >' + data.operator_name + '</span>'+shipinHTML+'<span class="picImg" img="' + data.images_url_name + '" name="' + data.operator_name + '" time="' + data.apply_time + '" address="' + data.door_name + '">尾随抓拍</span><span class="role">' + data.household_type + '</span></p>\n' +
+            '    <p><span class="name" householdCode="' + data.household_code + '" householdId="' + data.household_id + '" >' + data.operator_name + '</span>'+shipinHTML+'<span class="picImg" img="' + data.images_url_name + '" name="' + data.operator_name + '" time="' + data.apply_time + '" address="' + data.door_name + '">尾随抓拍</span>'+role+'</p>\n' +
             '    <p><img src="/img/zuobiao.png"><span class="address">' + data.door_name + '</span><span class="time">' + data.apply_time + '</span></p>\n' +
             '  </div>\n' +
             '</li>';

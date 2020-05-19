@@ -1722,7 +1722,7 @@
           //console.log(msg.data)
           var BJData = msg.data;//echart数据
           var DataList = msg.dataList;//列表标签
-          // console.log(DataList)
+          DataList.sort((a,b)=>{ return b.num-a.num})//降序
           //标签
           var a = DataList;
           // var a = [{name: "北京", num: "1", value: "北京"},
@@ -2005,7 +2005,14 @@
           //   return res;
           // };
           var series = [];
+          var arrinfo = [];
+          var max;
           [['北京', BJData]].forEach(function (item, i) {
+            var arr = item[1];
+            $.each(arr,function(idx,val){
+              arrinfo.push(val[0].num)
+            })
+            max = Math.max.apply(null,arrinfo);
             series.push({
               type: 'map',
               map: 'china',
@@ -2086,7 +2093,6 @@
 
               },
               data: item[1].map(function (dataItem) {
-                // console.log(dataItem)
                 return {
                   name: dataItem[0].name,
                   value: geoCoordMap[dataItem[0].name].concat([dataItem[0].num])
@@ -2120,7 +2126,27 @@
               trigger: 'item',//全局
               fontFamily: 'CNLight',
             },
+            visualMap: {
+              show: true,
+              min: 0,
+              max: max,
+              itemWidth:'6%',
+              itemHeight:'60%',
+              left: '5%',
+              top: 'bottom',
+              calculable: true,
+              seriesIndex: [1],
+              inRange: {
+                color: [ '#fa7e76','#ff1100']
+              },
+              textStyle:{
+                color:'#fff',
+                fontFamily: 'CNLight',
+                fontSize:EchartTable.getDpr(),
+              },
+            },
             geo: {
+              show: true,
               map: 'china',
               label: {
                 emphasis: {
@@ -2151,7 +2177,7 @@
                 },
               }
             },
-            series: series
+            series: series,
           };
 
           externalPopulation.setOption(option);
