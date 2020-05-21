@@ -115,7 +115,7 @@
         if (typeof socket != "undefined") {
           console.log('close websocket');
           socket.close();
-          Warn.api.ClearData();
+          // Warn.api.ClearData();
         }
       },
       ClearData: function () {

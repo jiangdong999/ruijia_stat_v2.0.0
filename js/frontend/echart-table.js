@@ -5482,8 +5482,6 @@
       }
 
     },
-    init: function () {
-    },
     getDpr: function () {
       //其中getDpr()为一个方法，根据屏幕大小去加载不同字体大小
       //图表根据屏幕大小去判断字体大小
@@ -5510,6 +5508,5 @@
 
     }
   };
-  EchartTable.init();
   // return EchartTable;
 // });

@@ -16,8 +16,10 @@
           'zone_code': data.zone_code,
           'adminid': window.Config.login
         };
+        
         if(window.socket != null){
           window.socket.send(JSON.stringify(arr));
+          socket.close();
         }
 
       },
@@ -54,7 +56,7 @@
           Index.api.loadLayer(request);
         // });
         //改变websocket地域
-        Warn.api.UpdateWebsockRegion();
+        // Warn.api.UpdateWebsockRegion();
 
       },
       /** 
@@ -483,7 +485,7 @@
           }
           Common.initmenu(data);  //初始化menu
           window.region = data;
-          Common.api.setHeaderTime();    //初始化时间
+          Common.api.setHeaderTime();    //初始化时间 
 
           sessionStorage.setItem('level', window.menuDeep);
           sessionStorage.setItem('community_id', '0');

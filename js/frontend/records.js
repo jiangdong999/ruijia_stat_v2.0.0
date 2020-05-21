@@ -1,9 +1,5 @@
 // define(['jquery', 'frontend', 'frontend/warn','layer-table','common'], function($, Frontend, Warn,LayerTable,Common) {
   var Records = {
-    index: function () {
-      Records.api.InitRecordList()
-      Records.api.StartWebsocket()
-    },
     api: {
       InitRecordList: function () {
         
@@ -81,17 +77,15 @@
       StartWebsocket: function(data) {
         let url = window.Config.wsUri;
 
-        if(JSON.stringify(data) == "{}"){
+        if(JSON.stringify(data) == "{}" || data === undefined){
           //首次切换地图页加载
           // console.log("正确")
           //正式
-          url = "wss://ws.znaf2.corelines.cn/community_id//zone_code/" + window.Config.usercode + "/adminid/" + window.Config.login;
+          url = "wss://ws.znaf2.corelines.cn/community_id/zone_code/" + window.Config.usercode + "/adminid/" + window.Config.login;
         }else{
           // console.log("正确333")
-          
-        //  url = "wss://ws.znaf2.corelines.cn/community_id/" + data.community_id + "/zone_code/" + data.zone_code + "/adminid/" + window.Config.login;
+          url = "wss://ws.znaf2.corelines.cn/community_id/" + data.community_id + "/zone_code/" + data.zone_code + "/adminid/" + window.Config.login;
         }
-
 
         try {
           var socket;
@@ -228,6 +222,5 @@
       }
     }
   };
-  Records.index()
   // return Records;
 // });

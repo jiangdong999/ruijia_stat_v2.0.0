@@ -94,6 +94,7 @@
                     // console.log(response)
                 }).catch(()=>{
                     console.log('返回数据失败，接口报错')
+                    window.location.href='index.html';
                 })
                 return p;
 
